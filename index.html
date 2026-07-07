@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <title>Thuê Xe Máy Nguyễn Hồng | Dịch Vụ Xe Máy Uy Tín Tại Hà Nội</title>
     <meta name="description" content="Dịch vụ cho thuê xe máy uy tín, nhanh chóng tại trung tâm Hà Nội. Địa chỉ: Số 7, Ngõ 149A Lê Duẩn, Hoàn Kiếm. Gọi ngay: 0388907364 để đặt xe.">
-    <meta name="keywords" content="thuê xe máy hà nội, thuê xe máy hoàn kiếm, thuê xe máy lê duẩn, thuê xe máy nguyễn hồng, thue xe may ha noi">
+    <meta name="keywords" content="thuê xe máy hà nội, thuê xe máy hoàn kiếm, thuê xe máy lê duẩn, thuê xe máy nguyễn hồng, thue xe may ha noi, app ultra tính tiền">
     <meta name="author" content="Nguyễn Hồng">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://github.com/thuexemaynguyenhong/app/">
@@ -41,6 +41,7 @@
       "@id": "https://github.com/thuexemaynguyenhong/app/",
       "url": "https://github.com/thuexemaynguyenhong/app/",
       "telephone": "+84388907364",
+      "email": "thuhong1102hn@gmail.com",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Số 7, Ngõ 149A Lê Duẩn, Cửa Nam",
@@ -57,8 +58,8 @@
       "openingHoursSpecification": {
         "@type": "OpeningHoursSpecification",
         "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-        "opens": "06:00",
-        "closes": "22:00"
+        "opens": "09:00",
+        "closes": "21:00"
       },
       "priceRange": "$$"
     }
@@ -77,6 +78,7 @@
             --glass-bg: rgba(255, 255, 255, 0.75);
             --glass-border: rgba(0, 0, 0, 0.08);
             --card-bg: #ffffff;
+            --card-hover: #f5f5f7;
             --accent-color: #0071e3;
             --accent-hover: #005bb5;
             --danger-color: #ff3b30;
@@ -87,6 +89,7 @@
             --radius-sm: 8px;
             --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             --font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            --header-height: 80px;
         }
 
         /* Dark Theme overrides */
@@ -97,6 +100,7 @@
             --glass-bg: rgba(28, 28, 30, 0.65);
             --glass-border: rgba(255, 255, 255, 0.1);
             --card-bg: #1c1c1e;
+            --card-hover: #2c2c2e;
             --accent-color: #2997ff;
             --accent-hover: #147ce5;
             --shadow: 0 4px 24px rgba(0,0,0,0.4);
@@ -122,7 +126,7 @@
         }
 
         body {
-            overflow-x: hidden; /* Chống cuộn ngang */
+            overflow-x: hidden; 
             display: flex;
             flex-direction: column;
             min-height: 100vh;
@@ -148,6 +152,26 @@
             -webkit-backdrop-filter: blur(20px);
             border: 1px solid var(--glass-border);
         }
+        
+        section {
+            padding: 80px 0;
+            scroll-margin-top: var(--header-height); /* Ngăn header che mất tiêu đề section */
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 16px;
+        }
+        .section-desc {
+            text-align: center;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 48px;
+            font-size: 1.1rem;
+        }
 
         /* Header Navigation */
         header {
@@ -158,6 +182,7 @@
             z-index: 1000;
             padding: 16px 0;
             transition: var(--transition);
+            height: var(--header-height);
         }
 
         .nav-inner {
@@ -188,7 +213,7 @@
         .nav-actions {
             display: flex;
             align-items: center;
-            gap: 16px;
+            gap: 12px;
         }
 
         /* Buttons */
@@ -213,7 +238,6 @@
             box-shadow: 0 4px 14px rgba(255, 59, 48, 0.3);
             animation: pulse 2s infinite;
         }
-
         .btn-call:hover {
             background: var(--danger-hover);
             transform: translateY(-2px);
@@ -233,20 +257,129 @@
             cursor: pointer;
             transition: var(--transition);
         }
-
         .btn-icon:hover {
             background: var(--card-bg);
             transform: scale(1.05);
         }
 
-        /* Hero Section */
+        /* Sidebar & Overlay */
+        .overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.4);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            z-index: 1001;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+        .overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .sidebar {
+            position: fixed;
+            top: 0;
+            right: -320px; /* Hidden by default on the right */
+            width: 320px;
+            height: 100vh;
+            background: var(--glass-bg);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border-left: 1px solid var(--glass-border);
+            z-index: 1002;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+        }
+        .sidebar.active {
+            right: 0;
+        }
+        [data-theme="dark"] .sidebar {
+            box-shadow: -10px 0 30px rgba(0,0,0,0.5);
+        }
+
+        .sidebar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 32px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--glass-border);
+        }
+        
+        .sidebar-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            overflow-y: auto;
+            flex: 1;
+            /* Hide scrollbar for clean look */
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .sidebar-nav::-webkit-scrollbar {
+            display: none;
+        }
+
+        .sidebar-nav a {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--text-main);
+            padding: 8px 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: var(--transition);
+        }
+        .sidebar-nav a:hover {
+            color: var(--accent-color);
+            transform: translateX(8px);
+        }
+        .sidebar-nav a svg {
+            color: var(--accent-color);
+            opacity: 0.7;
+        }
+
+        .sidebar-footer {
+            margin-top: 24px;
+            padding-top: 24px;
+            border-top: 1px solid var(--glass-border);
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 500;
+        }
+
+        /* Grid Layouts for Sections */
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+        .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        .card:hover {
+            transform: translateY(-4px);
+        }
+
+        /* 1. Hero Section */
         .hero {
-            padding: 160px 0 80px;
+            padding: 180px 0 100px;
             text-align: center;
             position: relative;
         }
-
-        /* Gradient background for hero */
         .hero::before {
             content: '';
             position: absolute;
@@ -259,10 +392,8 @@
             z-index: -1;
             pointer-events: none;
         }
-        [data-theme="dark"] .hero::before {
-            background: radial-gradient(circle, rgba(41,151,255,0.15) 0%, rgba(0,0,0,0) 70%);
-        }
-
+        [data-theme="dark"] .hero::before { background: radial-gradient(circle, rgba(41,151,255,0.15) 0%, rgba(0,0,0,0) 70%); }
+        
         .hero h1 {
             font-size: clamp(2.5rem, 6vw, 4.5rem);
             font-weight: 800;
@@ -273,7 +404,6 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-
         .hero p {
             font-size: clamp(1.1rem, 2vw, 1.5rem);
             color: var(--text-muted);
@@ -282,46 +412,56 @@
             font-weight: 400;
         }
 
-        /* Location & Contact Section */
-        .contact-section {
-            padding: 60px 0 100px;
+        /* 3. Pricing & App Ultra */
+        .pricing-card {
+            border: 2px solid transparent;
+            background: linear-gradient(var(--card-bg), var(--card-bg)) padding-box,
+                        linear-gradient(135deg, var(--accent-color), #8a2387) border-box;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .pricing-card .badge {
+            position: absolute;
+            top: 24px; right: -32px;
+            background: var(--accent-color);
+            color: #fff;
+            padding: 4px 40px;
+            transform: rotate(45deg);
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        .price {
+            font-size: 3rem;
+            font-weight: 800;
+            margin: 16px 0;
+            color: var(--text-main);
+        }
+        .price span { font-size: 1.2rem; color: var(--text-muted); font-weight: 400; }
+
+        /* 4. Vehicles */
+        .vehicle-card { text-align: center; }
+        .vehicle-card .v-icon {
+            width: 80px; height: 80px;
+            background: var(--card-hover);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 24px;
+            color: var(--accent-color);
         }
 
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 32px;
-            align-items: stretch;
-        }
-
-        .card {
-            background: var(--card-bg);
-            border: 1px solid var(--glass-border);
-            border-radius: var(--radius-lg);
-            padding: 40px;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .card:hover {
-            transform: translateY(-4px);
-        }
-
-        /* Layout yêu cầu: Link local map nằm bên trái */
+        /* 10. Contact Section Map */
         .map-card {
             position: relative;
             overflow: hidden;
-            min-height: 350px;
+            min-height: 400px;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             background: linear-gradient(145deg, var(--card-bg), var(--bg-color));
+            text-decoration: none;
         }
-
         .map-visual {
             position: absolute;
             inset: 0;
@@ -330,90 +470,76 @@
             background-size: 20px 20px;
             z-index: 1;
         }
-
-        .map-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        .map-content svg {
-            width: 64px;
-            height: 64px;
-            color: var(--accent-color);
-            margin-bottom: 16px;
-        }
-
-        .btn-map {
-            background: var(--text-main);
-            color: var(--bg-color);
-            margin-top: 24px;
-        }
-        .btn-map:hover {
-            background: var(--text-muted);
-            color: var(--bg-color);
-        }
-
-        .info-card h2 {
-            font-size: 2rem;
-            margin-bottom: 24px;
-            letter-spacing: -0.5px;
-        }
-
-        .info-list {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .info-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 16px;
-        }
-
-        .info-item svg {
-            width: 24px;
-            height: 24px;
-            color: var(--accent-color);
-            flex-shrink: 0;
-            margin-top: 2px;
-        }
-
-        .info-text strong {
-            display: block;
-            margin-bottom: 4px;
-            font-size: 1.1rem;
-        }
+        .map-content { position: relative; z-index: 2; }
+        .map-content svg { width: 64px; height: 64px; color: var(--accent-color); margin-bottom: 16px; }
+        .btn-map { background: var(--text-main); color: var(--bg-color); margin-top: 24px; }
+        .btn-map:hover { background: var(--text-muted); color: var(--bg-color); }
         
-        .info-text span {
-            color: var(--text-muted);
-        }
+        .info-list { list-style: none; display: flex; flex-direction: column; gap: 20px; }
+        .info-item { display: flex; align-items: flex-start; gap: 16px; }
+        .info-item svg { width: 24px; height: 24px; color: var(--accent-color); flex-shrink: 0; margin-top: 2px; }
+        .info-text strong { display: block; margin-bottom: 4px; font-size: 1.1rem; }
+        .info-text span, .info-text a { color: var(--text-muted); text-decoration: none; }
+        .info-text a:hover { color: var(--accent-color); text-decoration: underline; }
 
-        /* Footer */
+        /* Footer Layout */
         footer {
             margin-top: auto;
-            padding: 40px 0;
+            padding: 60px 0 40px;
+            background: var(--card-bg);
             border-top: 1px solid var(--glass-border);
-            text-align: center;
-            color: var(--text-muted);
-            font-size: 0.9rem;
         }
-
-        .social-links {
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 48px;
+            margin-bottom: 40px;
+        }
+        .footer-left {
             display: flex;
-            justify-content: center;
-            gap: 16px;
-            margin-bottom: 16px;
+            flex-direction: column;
+            gap: 24px;
         }
-
-        .social-links a {
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+        .footer-brand img { width: 40px; height: 40px; border-radius: 10px; }
+        .footer-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .footer-links-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+        .footer-links-wrapper h4 {
+            grid-column: 1 / -1;
+            margin-bottom: 16px;
+            font-size: 1.2rem;
+            color: var(--text-main);
+        }
+        .footer-links-wrapper a {
             color: var(--text-muted);
+            font-size: 1rem;
             transition: var(--transition);
         }
-
-        .social-links a:hover {
-            color: var(--text-main);
+        .footer-links-wrapper a:hover {
+            color: var(--accent-color);
+            transform: translateX(4px);
+        }
+        .footer-bottom {
+            text-align: center;
+            padding-top: 24px;
+            border-top: 1px solid var(--glass-border);
+            color: var(--text-muted);
+            font-size: 0.9rem;
         }
 
         /* Animations */
@@ -422,50 +548,29 @@
             70% { box-shadow: 0 0 0 15px rgba(255, 59, 48, 0); }
             100% { box-shadow: 0 0 0 0 rgba(255, 59, 48, 0); }
         }
-
         .reveal {
             opacity: 0;
             transform: translateY(30px);
             transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
-
         .reveal.active {
             opacity: 1;
             transform: translateY(0);
         }
 
-        /* Responsive Design (Mobile First mindset, adjusted for desktop) */
+        /* Responsive Design */
         @media (max-width: 992px) {
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
-            /* Đảm bảo map vẫn nổi bật trên mobile */
-            .map-card {
-                order: 2; /* Trừ phi muốn map lên đầu, theo UX mobile Info thường lên trước, nhưng yêu cầu map bên trái nên giữ nguyên logic PC */
-                min-height: 250px;
-            }
-            .info-card {
-                order: 1;
-            }
+            .grid-2 { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; gap: 40px; }
         }
-
         @media (max-width: 576px) {
-            .nav-inner {
-                padding: 12px 16px;
-            }
-            .logo span {
-                display: none; /* Thu gọn logo trên mobile cực nhỏ */
-            }
-            .btn-call span {
-                display: none; /* Chỉ hiện icon gọi trên mobile nhỏ để tiết kiệm không gian */
-            }
-            .btn-call {
-                padding: 12px;
-                border-radius: 50%;
-            }
-            .card {
-                padding: 24px;
-            }
+            .nav-inner { padding: 10px 16px; }
+            .logo span { display: none; }
+            .btn-call span { display: none; }
+            .btn-call { padding: 12px; border-radius: 50%; }
+            .card { padding: 24px; }
+            .footer-links-wrapper { grid-template-columns: 1fr; }
+            .sidebar { width: 100%; right: -100%; } /* Full width sidebar on mobile */
         }
     </style>
 </head>
@@ -475,7 +580,7 @@
     <header id="header">
         <div class="container">
             <nav class="nav-inner glass reveal active">
-                <a href="https://github.com/thuexemaynguyenhong/app/" class="logo" aria-label="Trang chủ">
+                <a href="#trang-chu" class="logo" aria-label="Trang chủ">
                     <img src="https://raw.githubusercontent.com/thuexemaynguyenhong/app/refs/heads/main/IMG_1620.png" alt="Logo" loading="lazy">
                     <span>Nguyễn Hồng</span>
                 </a>
@@ -490,24 +595,247 @@
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
                         <span>0388.907.364</span>
                     </a>
+                    <!-- Sidebar Toggle (Hamburger) -->
+                    <button class="btn-icon" id="menuToggle" aria-label="Mở Menu">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg>
+                    </button>
                 </div>
             </nav>
         </div>
     </header>
 
+    <!-- Sidebar Off-Canvas Menu -->
+    <div class="overlay" id="overlay"></div>
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <img src="https://raw.githubusercontent.com/thuexemaynguyenhong/app/refs/heads/main/IMG_1620.png" alt="Logo">
+                <span>Menu</span>
+            </div>
+            <button class="btn-icon" id="closeMenu" aria-label="Đóng Menu" style="width:36px; height:36px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>
+            </button>
+        </div>
+        <nav class="sidebar-nav">
+            <!-- 10 Links to 10 Sections -->
+            <a href="#trang-chu"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg> 1. Trang Chủ</a>
+            <a href="#ve-chung-toi"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg> 2. Về Chúng Tôi</a>
+            <a href="#bang-gia"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="5" rx="2"></rect><line x1="2" x2="22" y1="10" y2="10"></line></svg> 3. Bảng Giá & App Ultra</a>
+            <a href="#cac-dong-xe"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"></path><circle cx="7" cy="17" r="2"></circle><path d="M9 17h6"></path><circle cx="17" cy="17" r="2"></circle></svg> 4. Các Dòng Xe</a>
+            <a href="#thu-tuc"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" x2="8" y1="13" y2="13"></line><line x1="16" x2="8" y1="17" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg> 5. Thủ Tục Cần Thiết</a>
+            <a href="#khuyen-mai"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" x2="12" y1="22.08" y2="12"></line></svg> 6. Khuyến Mãi</a>
+            <a href="#danh-gia"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg> 7. Đánh Giá</a>
+            <a href="#tien-ich"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"></path></svg> 8. Tiện Ích Kèm Theo</a>
+            <a href="#faq"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" x2="12.01" y1="17" y2="17"></line></svg> 9. Câu Hỏi Thường Gặp</a>
+            <a href="#lien-he"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg> 10. Liên Hệ & Bản Đồ</a>
+        </nav>
+        <div class="sidebar-footer">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            Giờ mở cửa: 09h - 21h
+        </div>
+    </aside>
+
     <!-- Main Content -->
     <main>
-        <!-- Hero Section -->
-        <section class="hero container reveal">
+        
+        <!-- SECTION 1: Hero -->
+        <section id="trang-chu" class="hero container reveal">
             <h1>Hành trình của bạn,<br>Bắt đầu từ đây.</h1>
             <p>Dịch vụ cho thuê xe máy cao cấp tại trung tâm Hà Nội. Nhanh chóng, thủ tục đơn giản, xe chất lượng cao đảm bảo an toàn tuyệt đối cho mọi chuyến đi.</p>
+            <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+                <a href="#bang-gia" class="btn" style="background: var(--text-main); color: var(--bg-color);">Xem Bảng Giá</a>
+                <a href="#lien-he" class="btn" style="background: transparent; border: 1px solid var(--text-main); color: var(--text-main);">Bản Đồ Cửa Hàng</a>
+            </div>
         </section>
 
-        <!-- Contact & Map Section -->
-        <section class="contact-section container reveal">
-            <div class="contact-grid">
+        <!-- SECTION 2: Về Chúng Tôi -->
+        <section id="ve-chung-toi" class="container reveal">
+            <h2 class="section-title">Về Chúng Tôi</h2>
+            <p class="section-desc">Nguyễn Hồng - Tự hào là đối tác tin cậy cho hàng ngàn du khách và người dân địa phương khi cần di chuyển tiện lợi tại Hà Nội.</p>
+            <div class="card grid-2" style="padding: 40px; align-items: center;">
+                <div>
+                    <h3 style="font-size: 1.8rem; margin-bottom: 16px;">Kinh nghiệm & Uy tín</h3>
+                    <p style="color: var(--text-muted); margin-bottom: 24px;">Với nhiều năm hoạt động trong lĩnh vực cho thuê xe, chúng tôi mang đến những chiếc xe đời mới nhất, được bảo dưỡng định kỳ khắt khe, giúp bạn an tâm trên mọi nẻo đường.</p>
+                    <ul class="info-list" style="gap: 12px;">
+                        <li class="info-item"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> 100% Xe được bảo dưỡng định kỳ.</li>
+                        <li class="info-item"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Hỗ trợ sự cố tận nơi 24/7.</li>
+                    </ul>
+                </div>
+                <div style="border-radius: var(--radius-md); overflow: hidden; height: 100%; min-height: 250px; background: linear-gradient(135deg, var(--card-hover), var(--bg-color)); display: flex; align-items: center; justify-content: center;">
+                    <img src="https://raw.githubusercontent.com/thuexemaynguyenhong/app/refs/heads/main/IMG_1620.png" alt="Cửa hàng Nguyễn Hồng" style="width: 150px; height: 150px; border-radius: 50%; box-shadow: var(--shadow);">
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: Bảng Giá & App Ultra -->
+        <section id="bang-gia" class="container reveal">
+            <h2 class="section-title">Bảng Giá & App Ultra</h2>
+            <p class="section-desc">Chi phí minh bạch, không phụ phí ẩn. Tích hợp tính tiền thông minh qua App Ultra.</p>
+            <div class="grid-3">
+                <div class="card pricing-card">
+                    <h3 style="font-size: 1.5rem;">Xe Số (Wave, Sirius)</h3>
+                    <div class="price">100k<span>/ngày</span></div>
+                    <p style="color: var(--text-muted); margin-bottom: 24px;">Siêu tiết kiệm nhiên liệu, di chuyển linh hoạt trong phố và ngõ nhỏ.</p>
+                    <a href="tel:0388907364" class="btn" style="width: 100%; background: var(--text-main); color: var(--bg-color);">Đặt Xe Ngay</a>
+                </div>
+                <div class="card pricing-card" style="transform: scale(1.05); z-index: 2; border: 2px solid var(--accent-color);">
+                    <div class="badge">Phổ Biến</div>
+                    <h3 style="font-size: 1.5rem;">Xe Ga (Vision, AirBlade)</h3>
+                    <div class="price">150k<span>/ngày</span></div>
+                    <p style="color: var(--text-muted); margin-bottom: 24px;">Cốp rộng tiện lợi, kiểu dáng thanh lịch hiện đại.</p>
+                    <a href="tel:0388907364" class="btn" style="width: 100%; background: var(--accent-color); color: #fff;">Đặt Xe Ngay</a>
+                </div>
+                <div class="card pricing-card">
+                    <h3 style="font-size: 1.5rem;">Tính Tiền App Ultra</h3>
+                    <div class="price">Smart</div>
+                    <p style="color: var(--text-muted); margin-bottom: 24px;">Thuê theo giờ, theo km? Trải nghiệm ngay hệ thống tính tiền chính xác qua App Ultra.</p>
+                    <a href="#lien-he" class="btn" style="width: 100%; background: var(--text-main); color: var(--bg-color);">Tìm Hiểu Thêm</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: Các Dòng Xe -->
+        <section id="cac-dong-xe" class="container reveal">
+            <h2 class="section-title">Các Dòng Xe Sẵn Sàng</h2>
+            <p class="section-desc">Đa dạng lựa chọn, phù hợp với mọi nhu cầu và phong cách của bạn.</p>
+            <div class="grid-4">
+                <div class="card vehicle-card">
+                    <div class="v-icon">🛵</div>
+                    <h3>Honda Vision</h3>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">Thanh lịch, cốp rộng, dễ điều khiển.</p>
+                </div>
+                <div class="card vehicle-card">
+                    <div class="v-icon">🏍️</div>
+                    <h3>Honda AirBlade</h3>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">Mạnh mẽ, thể thao, phù hợp đi xa.</p>
+                </div>
+                <div class="card vehicle-card">
+                    <div class="v-icon">🛵</div>
+                    <h3>Yamaha Janus</h3>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">Thiết kế trẻ trung, siêu tiết kiệm xăng.</p>
+                </div>
+                <div class="card vehicle-card">
+                    <div class="v-icon">🏍️</div>
+                    <h3>Honda Wave Alpha</h3>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">Quốc dân, bền bỉ vượt mọi địa hình.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 5: Thủ Tục Cần Thiết -->
+        <section id="thu-tuc" class="container reveal">
+            <h2 class="section-title">Thủ Tục Đơn Giản</h2>
+            <p class="section-desc">Chỉ mất 5 phút để bạn có thể nhận xe và bắt đầu hành trình.</p>
+            <div class="card" style="padding: 40px;">
+                <div class="grid-3" style="text-align: center;">
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--accent-color)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 16px;"><rect width="18" height="14" x="3" y="5" rx="2" ry="2"></rect><line x1="3" x2="21" y1="9" y2="9"></line><line x1="7" x2="9" y1="15" y2="15"></line></svg>
+                        <h3 style="margin-bottom: 8px;">1. Chuẩn bị giấy tờ</h3>
+                        <p style="color: var(--text-muted); font-size: 0.95rem;">CCCD/CMND hoặc Hộ chiếu (Passport) bản gốc.</p>
+                    </div>
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--accent-color)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 16px;"><path d="M12 2v20"></path><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                        <h3 style="margin-bottom: 8px;">2. Tiền cọc (Tùy chọn)</h3>
+                        <p style="color: var(--text-muted); font-size: 0.95rem;">Cọc từ 1-2 triệu đồng hoặc giữ lại giấy tờ xe cá nhân của bạn.</p>
+                    </div>
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--accent-color)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 16px;"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"></path><path d="M15 18H9"></path><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"></path><circle cx="17" cy="18" r="2"></circle><circle cx="7" cy="18" r="2"></circle></svg>
+                        <h3 style="margin-bottom: 8px;">3. Nhận xe & Đi thôi!</h3>
+                        <p style="color: var(--text-muted); font-size: 0.95rem;">Ký hợp đồng, nhận xe kèm mũ bảo hiểm và áo mưa.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 6: Khuyến Mãi -->
+        <section id="khuyen-mai" class="container reveal">
+            <h2 class="section-title">Khuyến Mãi Đặc Biệt</h2>
+            <p class="section-desc">Nhận ưu đãi lớn khi đặt xe trước hoặc thuê dài ngày.</p>
+            <div class="card" style="background: linear-gradient(135deg, var(--accent-color), #8a2387); color: #fff; text-align: center; padding: 60px 24px;">
+                <h3 style="font-size: 2.5rem; margin-bottom: 16px;">Giảm 10%</h3>
+                <p style="font-size: 1.2rem; opacity: 0.9; margin-bottom: 32px; max-width: 500px; margin-left: auto; margin-right: auto;">Dành cho sinh viên hoặc khách hàng thuê xe từ 5 ngày trở lên.</p>
+                <a href="tel:0388907364" class="btn" style="background: #fff; color: var(--text-main); font-size: 1.1rem; padding: 16px 32px;">Lấy Mã & Gọi Đặt Xe</a>
+            </div>
+        </section>
+
+        <!-- SECTION 7: Đánh Giá Khách Hàng -->
+        <section id="danh-gia" class="container reveal">
+            <h2 class="section-title">Khách Hàng Nói Gì</h2>
+            <p class="section-desc">Hàng ngàn khách hàng đã trải nghiệm và hài lòng với dịch vụ.</p>
+            <div class="grid-3">
+                <div class="card">
+                    <div style="color: #ffc107; font-size: 1.5rem; margin-bottom: 16px;">★★★★★</div>
+                    <p style="color: var(--text-muted); font-style: italic; margin-bottom: 16px;">"Xe rất mới và đi êm. Chú chủ nhà cực kỳ nhiệt tình chỉ đường và quán ăn ngon cho mình. Lần sau ra Hà Nội chắc chắn sẽ thuê lại!"</p>
+                    <strong>- Minh Hoàng (TP.HCM)</strong>
+                </div>
+                <div class="card">
+                    <div style="color: #ffc107; font-size: 1.5rem; margin-bottom: 16px;">★★★★★</div>
+                    <p style="color: var(--text-muted); font-style: italic; margin-bottom: 16px;">"Thủ tục nhanh gọn lẹ. Mình dùng App Ultra để tính tiền, rất minh bạch và hiện đại. Giá cả rẻ hơn so với các chỗ khác trên phố cổ."</p>
+                    <strong>- Elena Trần (Đà Nẵng)</strong>
+                </div>
+                <div class="card">
+                    <div style="color: #ffc107; font-size: 1.5rem; margin-bottom: 16px;">★★★★★</div>
+                    <p style="color: var(--text-muted); font-style: italic; margin-bottom: 16px;">"Giao xe tận khách sạn luôn, xe Vision cốp rộng tha hồ để đồ đi dạo phố. Mũ bảo hiểm sạch sẽ, có sẵn 2 áo mưa mỏng."</p>
+                    <strong>- Tuấn Anh (Hải Phòng)</strong>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 8: Tiện Ích Kèm Theo -->
+        <section id="tien-ich" class="container reveal">
+            <h2 class="section-title">Tiện Ích Miễn Phí</h2>
+            <p class="section-desc">Mọi thứ bạn cần cho một chuyến đi an toàn đều được chuẩn bị sẵn.</p>
+            <div class="grid-4">
+                <div class="card" style="text-align: center; padding: 24px;">
+                    <div style="font-size: 2.5rem; margin-bottom: 16px;">🪖</div>
+                    <h4>2 Mũ Bảo Hiểm</h4>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 8px;">Đạt chuẩn, vệ sinh sạch sẽ.</p>
+                </div>
+                <div class="card" style="text-align: center; padding: 24px;">
+                    <div style="font-size: 2.5rem; margin-bottom: 16px;">🌧️</div>
+                    <h4>Áo Mưa</h4>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 8px;">Dự phòng cho thời tiết bất chợt.</p>
+                </div>
+                <div class="card" style="text-align: center; padding: 24px;">
+                    <div style="font-size: 2.5rem; margin-bottom: 16px;">🗺️</div>
+                    <h4>Bản Đồ / Giá đỡ ĐT</h4>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 8px;">Hỗ trợ tìm đường dễ dàng.</p>
+                </div>
+                <div class="card" style="text-align: center; padding: 24px;">
+                    <div style="font-size: 2.5rem; margin-bottom: 16px;">🛠️</div>
+                    <h4>Hỗ Trợ 24/7</h4>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 8px;">Đổi xe ngay nếu gặp sự cố.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 9: Câu Hỏi Thường Gặp (FAQ) -->
+        <section id="faq" class="container reveal">
+            <h2 class="section-title">Câu Hỏi Thường Gặp</h2>
+            <p class="section-desc">Giải đáp nhanh những thắc mắc của bạn.</p>
+            <div class="card" style="max-width: 800px; margin: 0 auto;">
+                <div style="border-bottom: 1px solid var(--glass-border); padding-bottom: 16px; margin-bottom: 16px;">
+                    <h4 style="font-size: 1.1rem; margin-bottom: 8px;">Có giao xe tận nơi không?</h4>
+                    <p style="color: var(--text-muted);">Có, chúng tôi hỗ trợ giao xe miễn phí quanh khu vực bán kính 3km hoặc tính phí cực rẻ cho các khu vực xa hơn trong nội thành Hà Nội.</p>
+                </div>
+                <div style="border-bottom: 1px solid var(--glass-border); padding-bottom: 16px; margin-bottom: 16px;">
+                    <h4 style="font-size: 1.1rem; margin-bottom: 8px;">Tôi không có bằng lái xe máy thì sao?</h4>
+                    <p style="color: var(--text-muted);">Theo luật giao thông, bạn cần có GPLX để điều khiển xe trên 50cc. Nếu không có, vui lòng cân nhắc các phương tiện khác để đảm bảo an toàn.</p>
+                </div>
+                <div>
+                    <h4 style="font-size: 1.1rem; margin-bottom: 8px;">Tính tiền App Ultra là gì?</h4>
+                    <p style="color: var(--text-muted);">Đây là hệ thống quản lý và tính cước thông minh được Nguyễn Hồng áp dụng. Nó giúp minh bạch số giờ, số km và hiển thị hóa đơn rõ ràng ngay trên điện thoại cho khách hàng.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 10: Liên Hệ & Bản Đồ -->
+        <section id="lien-he" class="contact-section container reveal">
+            <h2 class="section-title">Liên Hệ & Vị Trí</h2>
+            <p class="section-desc">Đến ngay cửa hàng hoặc gọi cho chúng tôi để được phục vụ tốt nhất.</p>
+            <div class="grid-2" style="align-items: stretch;">
                 
-                <!-- Left Column: Map (Bắt buộc theo yêu cầu) -->
+                <!-- Left Column: Map -->
                 <a href="https://maps.app.goo.gl/UusWJ35x28xaAmsm7?g_st=ic" target="_blank" rel="noopener noreferrer" class="card map-card" aria-label="Mở bản đồ Google Maps">
                     <div class="map-visual"></div>
                     <div class="map-content">
@@ -520,7 +848,7 @@
 
                 <!-- Right Column: Info -->
                 <div class="card info-card">
-                    <h2>Thông tin liên hệ</h2>
+                    <h2 style="font-size: 2rem; margin-bottom: 24px; letter-spacing: -0.5px;">Thông tin liên hệ</h2>
                     <address style="font-style: normal;">
                         <ul class="info-list">
                             <li class="info-item">
@@ -534,14 +862,22 @@
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
                                 <div class="info-text">
                                     <strong>Hotline tư vấn (24/7)</strong>
-                                    <span><a href="tel:0388907364" style="color: inherit; text-decoration: underline;">0388 907 364</a></span>
+                                    <a href="tel:0388907364" style="font-weight: 500; text-decoration: underline;">0388 907 364</a>
+                                </div>
+                            </li>
+                            <li class="info-item">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+                                <div class="info-text">
+                                    <strong>Email hỗ trợ</strong>
+                                    <a href="mailto:thuhong1102hn@gmail.com">thuhong1102hn@gmail.com</a>
                                 </div>
                             </li>
                             <li class="info-item">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
                                 <div class="info-text">
                                     <strong>Giờ hoạt động</strong>
-                                    <span>Tất cả các ngày trong tuần</span>
+                                    <span style="font-weight: 600; color: var(--accent-color);">09:00 - 21:00</span>
+                                    <span style="display: block; font-size: 0.9rem;">(Tất cả các ngày trong tuần)</span>
                                 </div>
                             </li>
                         </ul>
@@ -554,15 +890,59 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="social-links">
-                <a href="https://github.com/thuexemaynguyenhong/" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
-                </a>
-                <a href="https://maps.app.goo.gl/UusWJ35x28xaAmsm7?g_st=ic" target="_blank" rel="noopener noreferrer" aria-label="Google Maps">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                </a>
+            <div class="footer-grid">
+                
+                <!-- Footer Left: Branding, Quick Call, Map -->
+                <div class="footer-left">
+                    <div class="footer-brand">
+                        <img src="https://raw.githubusercontent.com/thuexemaynguyenhong/app/refs/heads/main/IMG_1620.png" alt="Logo">
+                        Nguyễn Hồng
+                    </div>
+                    <p style="color: var(--text-muted); font-size: 0.95rem;">Mang đến cho bạn giải pháp di chuyển an toàn, tiết kiệm và tối ưu nhất tại trung tâm thủ đô Hà Nội.</p>
+                    
+                    <div class="footer-actions">
+                        <a href="tel:0388907364" class="btn btn-call" style="justify-content: flex-start; padding: 14px 24px;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                            Gọi Ngay: 0388.907.364
+                        </a>
+                        <a href="https://maps.app.goo.gl/UusWJ35x28xaAmsm7?g_st=ic" target="_blank" rel="noopener noreferrer" class="btn" style="justify-content: flex-start; background: var(--text-main); color: var(--bg-color); padding: 14px 24px;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                            Mở Bản Đồ Vị Trí
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Footer Right: 10 Links Menu -->
+                <div class="footer-links-wrapper">
+                    <h4>Menu Nhanh</h4>
+                    <!-- Cột 1 -->
+                    <div style="display: flex; flex-direction: column; gap: 12px;">
+                        <a href="#trang-chu">1. Trang Chủ</a>
+                        <a href="#ve-chung-toi">2. Về Chúng Tôi</a>
+                        <a href="#bang-gia">3. Bảng Giá & App Ultra</a>
+                        <a href="#cac-dong-xe">4. Các Dòng Xe</a>
+                        <a href="#thu-tuc">5. Thủ Tục Cần Thiết</a>
+                    </div>
+                    <!-- Cột 2 -->
+                    <div style="display: flex; flex-direction: column; gap: 12px;">
+                        <a href="#khuyen-mai">6. Khuyến Mãi</a>
+                        <a href="#danh-gia">7. Đánh Giá Khách Hàng</a>
+                        <a href="#tien-ich">8. Tiện Ích Kèm Theo</a>
+                        <a href="#faq">9. Câu Hỏi Thường Gặp</a>
+                        <a href="#lien-he">10. Liên Hệ & Bản Đồ</a>
+                    </div>
+                </div>
+
             </div>
-            <p>&copy; 2026 Thuê Xe Máy Nguyễn Hồng. Trải nghiệm dịch vụ số 1 Hà Nội.</p>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Thuê Xe Máy Nguyễn Hồng. Thiết kế tối ưu hóa & Chuẩn SEO.</p>
+                <div style="display: flex; justify-content: center; gap: 16px; margin-top: 16px;">
+                    <a href="https://github.com/thuexemaynguyenhong/" target="_blank" rel="noopener noreferrer" style="color: var(--text-muted);" aria-label="GitHub">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
+                    </a>
+                </div>
+            </div>
         </div>
     </footer>
 
@@ -571,25 +951,24 @@
          ========================================== -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            
+            // ==========================================
             // 1. Logic Theme Toggle (Dark/Light Mode)
+            // ==========================================
             const htmlEl = document.documentElement;
             const themeBtn = document.getElementById('themeToggle');
             const sunIcon = document.getElementById('sunIcon');
             const moonIcon = document.getElementById('moonIcon');
 
-            // Lấy theme từ localStorage hoặc system preference
             const getPreferredTheme = () => {
                 const savedTheme = localStorage.getItem('theme');
-                if (savedTheme) {
-                    return savedTheme;
-                }
+                if (savedTheme) return savedTheme;
                 return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
             };
 
             const setTheme = (theme) => {
                 htmlEl.setAttribute('data-theme', theme);
                 localStorage.setItem('theme', theme);
-                // Đổi icon tương ứng
                 if (theme === 'dark') {
                     sunIcon.style.display = 'block';
                     moonIcon.style.display = 'none';
@@ -598,18 +977,46 @@
                     moonIcon.style.display = 'block';
                 }
             };
-
-            // Khởi tạo theme
             setTheme(getPreferredTheme());
 
-            // Xử lý click nút toggle
             themeBtn.addEventListener('click', () => {
                 const currentTheme = htmlEl.getAttribute('data-theme');
-                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-                setTheme(newTheme);
+                setTheme(currentTheme === 'dark' ? 'light' : 'dark');
             });
 
-            // 2. Logic Scroll Animations (Hiệu ứng hiện đại)
+            // ==========================================
+            // 2. Logic Sidebar Menu (Off-Canvas)
+            // ==========================================
+            const menuToggle = document.getElementById('menuToggle');
+            const closeMenu = document.getElementById('closeMenu');
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('overlay');
+            const sidebarLinks = document.querySelectorAll('.sidebar-nav a');
+
+            const openSidebar = () => {
+                sidebar.classList.add('active');
+                overlay.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Chống cuộn trang khi mở menu
+            };
+
+            const closeSidebar = () => {
+                sidebar.classList.remove('active');
+                overlay.classList.remove('active');
+                document.body.style.overflow = '';
+            };
+
+            menuToggle.addEventListener('click', openSidebar);
+            closeMenu.addEventListener('click', closeSidebar);
+            overlay.addEventListener('click', closeSidebar);
+            
+            // Đóng sidebar khi ấn vào bất kỳ link nào
+            sidebarLinks.forEach(link => {
+                link.addEventListener('click', closeSidebar);
+            });
+
+            // ==========================================
+            // 3. Logic Scroll Animations (Hiệu ứng hiện đại)
+            // ==========================================
             const reveals = document.querySelectorAll('.reveal');
             const revealOptions = {
                 threshold: 0.1,
@@ -620,7 +1027,7 @@
                 entries.forEach(entry => {
                     if (!entry.isIntersecting) return;
                     entry.target.classList.add('active');
-                    observer.unobserve(entry.target); // Chỉ chạy 1 lần để tối ưu hiệu suất
+                    observer.unobserve(entry.target); 
                 });
             }, revealOptions);
 
