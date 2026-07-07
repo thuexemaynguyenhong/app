@@ -1,789 +1,646 @@
 <!DOCTYPE html>
-<html lang="vi" data-theme="light">
+<html lang="vi" data-theme="system">
 <head>
+    <!-- ==========================================
+         SEO & META TAGS (Tối ưu chuẩn 2026)
+         ========================================== -->
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <meta name="theme-color" content="#f5f5f7" media="(prefers-color-scheme: light)">
-    <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
-    <title>Thuê Xe Máy Nguyễn Hồng - Dịch Vụ Thuê Xe Máy Uy Tín Hà Nội</title>
-    
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="Thuê xe máy Nguyễn Hồng tại Hoàn Kiếm, Hà Nội. Dịch vụ cho thuê xe máy uy tín, giá rẻ, thủ tục nhanh chóng. Tính giá tự động ngay trên website. Thân thiện với mọi thiết bị.">
-    <meta name="keywords" content="thuê xe máy hà nội, thuê xe máy hoàn kiếm, thuê xe máy nguyễn hồng, thuê xe máy giá rẻ hanoi, moto rental hanoi">
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Thuê Xe Máy Nguyễn Hồng | Dịch Vụ Xe Máy Uy Tín Tại Hà Nội</title>
+    <meta name="description" content="Dịch vụ cho thuê xe máy uy tín, nhanh chóng tại trung tâm Hà Nội. Địa chỉ: Số 7, Ngõ 149A Lê Duẩn, Hoàn Kiếm. Gọi ngay: 0388907364 để đặt xe.">
+    <meta name="keywords" content="thuê xe máy hà nội, thuê xe máy hoàn kiếm, thuê xe máy lê duẩn, thuê xe máy nguyễn hồng, thue xe may ha noi">
+    <meta name="author" content="Nguyễn Hồng">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://github.com/thuexemaynguyenhong/app/">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/thuexemaynguyenhong/app/refs/heads/main/IMG_1620.png">
+    <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/thuexemaynguyenhong/app/refs/heads/main/IMG_1620.png">
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://github.com/thuexemaynguyenhong/app/">
-    <meta property="og:title" content="Thuê Xe Máy Nguyễn Hồng - Cho Thuê Xe Máy Uy Tín Hà Nội">
-    <meta property="og:description" content="Hệ thống cho thuê xe máy hiện đại, thủ tục tối giản tại trung tâm Hà Nội. Tính giá thuê trực tuyến minh bạch.">
+    <meta property="og:title" content="Thuê Xe Máy Nguyễn Hồng | Nhanh Chóng, Giá Rẻ">
+    <meta property="og:description" content="Trải nghiệm khám phá Hà Nội trọn vẹn với dịch vụ thuê xe máy chuyên nghiệp tại Số 7, Ngõ 149A Lê Duẩn.">
     <meta property="og:image" content="https://raw.githubusercontent.com/thuexemaynguyenhong/app/refs/heads/main/IMG_1620.png">
 
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://github.com/thuexemaynguyenhong/app/">
+    <meta property="twitter:title" content="Thuê Xe Máy Nguyễn Hồng">
+    <meta property="twitter:description" content="Dịch vụ cho thuê xe máy uy tín tại trung tâm Hà Nội. Gọi ngay: 0388907364.">
+    <meta property="twitter:image" content="https://raw.githubusercontent.com/thuexemaynguyenhong/app/refs/heads/main/IMG_1620.png">
+
+    <!-- Schema.org for Local Business (Tối ưu SEO Local) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Thuê Xe Máy Nguyễn Hồng",
+      "image": "https://raw.githubusercontent.com/thuexemaynguyenhong/app/refs/heads/main/IMG_1620.png",
+      "@id": "https://github.com/thuexemaynguyenhong/app/",
+      "url": "https://github.com/thuexemaynguyenhong/app/",
+      "telephone": "+84388907364",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Số 7, Ngõ 149A Lê Duẩn, Cửa Nam",
+        "addressLocality": "Hoàn Kiếm",
+        "addressRegion": "Hà Nội",
+        "postalCode": "100000",
+        "addressCountry": "VN"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 21.025530,
+        "longitude": 105.840250
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        "opens": "06:00",
+        "closes": "22:00"
+      },
+      "priceRange": "$$"
+    }
+    </script>
+
+    <!-- ==========================================
+         CSS STYLES (Apple, Linear, Glassmorphism)
+         ========================================== -->
     <style>
-        /* --- 1. CSS VARIABLES (DESIGN TOKENS) --- */
+        /* CSS Variables - Theming */
         :root {
-            /* Light Theme */
-            --primary-color: #0071e3;
-            --primary-hover: #0077ed;
-            --bg-main: #f5f5f7;
-            --bg-glass: rgba(255, 255, 255, 0.75);
-            --bg-card: rgba(255, 255, 255, 0.65);
-            --border-glass: rgba(0, 0, 0, 0.05);
-            --border-card: rgba(255, 255, 255, 0.6);
+            /* Light Theme Defaults */
+            --bg-color: #fbfbfd;
             --text-main: #1d1d1f;
-            --text-heading: #1d1d1f;
             --text-muted: #86868b;
-            --accent-green: #34c759;
-            --calc-bg: rgba(255, 255, 255, 0.85);
-            --input-bg: #f5f5f7;
-            --menu-bg: rgba(0, 0, 0, 0.04);
-            --menu-item-color: #515154;
-            --menu-active-bg: #ffffff;
-            --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.03);
-            --shadow-md: 0 8px 30px rgba(0, 0, 0, 0.06);
-            --shadow-active: 0 2px 8px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.04);
-            --bg-gradient-1: rgba(230, 242, 255, 0.4);
-            --bg-gradient-2: rgba(245, 230, 255, 0.3);
-            --bg-gradient-3: rgba(255, 240, 230, 0.3);
-            
-            --radius-xl: 24px;
-            --radius-lg: 18px;
-            --radius-md: 12px;
-            --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            --header-height: 70px;
+            --glass-bg: rgba(255, 255, 255, 0.75);
+            --glass-border: rgba(0, 0, 0, 0.08);
+            --card-bg: #ffffff;
+            --accent-color: #0071e3;
+            --accent-hover: #005bb5;
+            --danger-color: #ff3b30;
+            --danger-hover: #d70015;
+            --shadow: 0 4px 24px rgba(0,0,0,0.06);
+            --radius-lg: 24px;
+            --radius-md: 16px;
+            --radius-sm: 8px;
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            --font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
 
+        /* Dark Theme overrides */
         [data-theme="dark"] {
-            /* Dark Theme */
-            --primary-color: #0a84ff;
-            --primary-hover: #409cff;
-            --bg-main: #000000;
-            --bg-glass: rgba(28, 28, 30, 0.75);
-            --bg-card: rgba(28, 28, 30, 0.65);
-            --border-glass: rgba(255, 255, 255, 0.08);
-            --border-card: rgba(255, 255, 255, 0.05);
+            --bg-color: #000000;
             --text-main: #f5f5f7;
-            --text-heading: #ffffff;
             --text-muted: #a1a1a6;
-            --accent-green: #30d158;
-            --calc-bg: rgba(28, 28, 30, 0.85);
-            --input-bg: #1c1c1e;
-            --menu-bg: rgba(255, 255, 255, 0.1);
-            --menu-item-color: #a1a1a6;
-            --menu-active-bg: #2c2c2e;
-            --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.3);
-            --shadow-md: 0 8px 30px rgba(0, 0, 0, 0.5);
-            --shadow-active: 0 2px 8px rgba(0, 0, 0, 0.4);
-            --bg-gradient-1: rgba(10, 132, 255, 0.12);
-            --bg-gradient-2: rgba(160, 32, 240, 0.08);
-            --bg-gradient-3: rgba(48, 209, 88, 0.05);
+            --glass-bg: rgba(28, 28, 30, 0.65);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --card-bg: #1c1c1e;
+            --accent-color: #2997ff;
+            --accent-hover: #147ce5;
+            --shadow: 0 4px 24px rgba(0,0,0,0.4);
         }
 
-        /* --- 2. BASE & RESET --- */
-        * {
+        /* CSS Reset & Setup */
+        *, *::before, *::after {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            -webkit-tap-highlight-color: transparent;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         html {
             scroll-behavior: smooth;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: var(--font-family);
+            font-size: 16px;
+            line-height: 1.5;
+            transition: background-color var(--transition), color var(--transition);
         }
 
         body {
-            font-family: var(--font-stack);
-            background-color: var(--bg-main);
-            background-image: 
-                radial-gradient(at 0% 0%, var(--bg-gradient-1) 0px, transparent 50%),
-                radial-gradient(at 100% 0%, var(--bg-gradient-2) 0px, transparent 50%),
-                radial-gradient(at 50% 100%, var(--bg-gradient-3) 0px, transparent 50%);
-            background-attachment: fixed;
-            color: var(--text-main);
-            overflow-x: hidden;
+            overflow-x: hidden; /* Chống cuộn ngang */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: color var(--transition);
+        }
+
+        /* Utility Classes */
+        .container {
             width: 100%;
-            line-height: 1.5;
-            transition: background-color 0.4s ease, color 0.4s ease;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
         }
 
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
+        .glass {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
         }
 
-        /* --- 3. HEADER & NAVIGATION --- */
+        /* Header Navigation */
         header {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
-            height: var(--header-height);
-            background: var(--bg-glass);
-            backdrop-filter: saturate(180%) blur(20px);
-            -webkit-backdrop-filter: saturate(180%) blur(20px);
-            border-bottom: 1px solid var(--border-glass);
             z-index: 1000;
-            display: grid;
-            grid-template-columns: 1fr auto 1fr;
-            align-items: center;
-            padding: 0 24px;
-            transition: all 0.3s ease;
+            padding: 16px 0;
+            transition: var(--transition);
         }
 
-        .logo-area {
+        .nav-inner {
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            gap: 10px;
-            text-decoration: none;
-            justify-self: start;
+            padding: 12px 24px;
+            border-radius: 100px;
         }
 
-        .logo-img-wrapper img {
-            width: 36px;
-            height: 36px;
-            border-radius: 10px;
-            object-fit: cover;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-        }
-
-        [data-theme="dark"] .logo-img-wrapper img { box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1); }
-
-        .logo-text {
-            font-weight: 800;
-            font-size: 18px;
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
             letter-spacing: -0.5px;
-            color: var(--text-heading);
-            white-space: nowrap;
-        }
-
-        nav {
             display: flex;
             align-items: center;
-            gap: 4px;
-            background: var(--menu-bg);
-            border-radius: 100px;
-            padding: 6px;
-            box-shadow: inset 0 1px 3px rgba(0,0,0,0.02);
-            justify-self: center;
+            gap: 12px;
+            color: var(--text-main);
         }
 
-        nav a {
-            text-decoration: none;
-            color: var(--menu-item-color);
-            font-size: 14px;
+        .logo img {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 24px;
+            border-radius: 100px;
             font-weight: 600;
-            padding: 8px 18px;
-            border-radius: 100px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-            white-space: nowrap;
-        }
-
-        nav a svg { width: 16px; height: 16px; fill: currentColor; display: none; }
-        nav a:hover { color: var(--primary-color); }
-        nav a.active {
-            background: var(--menu-active-bg);
-            color: var(--primary-color);
-            box-shadow: var(--shadow-active);
-            transform: scale(1.02);
-        }
-
-        .header-actions { justify-self: end; }
-
-        .theme-btn {
-            background: var(--menu-bg);
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: var(--transition);
             border: none;
-            width: 40px;
-            height: 40px;
+            gap: 8px;
+            text-align: center;
+        }
+
+        .btn-call {
+            background: var(--danger-color);
+            color: #fff;
+            box-shadow: 0 4px 14px rgba(255, 59, 48, 0.3);
+            animation: pulse 2s infinite;
+        }
+
+        .btn-call:hover {
+            background: var(--danger-hover);
+            transform: translateY(-2px);
+            color: #fff;
+        }
+
+        .btn-icon {
+            width: 44px;
+            height: 44px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            cursor: pointer;
-            color: var(--text-main);
-            transition: all 0.3s ease;
-        }
-
-        .theme-btn:hover { background: var(--border-glass); }
-        .theme-btn svg { width: 20px; height: 20px; fill: currentColor; transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55); }
-        .sun-icon { display: none; }
-        .moon-icon { display: block; }
-        [data-theme="dark"] .sun-icon { display: block; }
-        [data-theme="dark"] .moon-icon { display: none; }
-        [data-theme="dark"] .theme-btn svg { transform: rotate(180deg); }
-
-        /* --- 4. MAIN LAYOUT & SECTIONS --- */
-        main {
-            margin-top: calc(var(--header-height) + 20px);
-            padding: 0 24px;
-            max-width: 1200px;
-            margin-left: auto;
-            margin-right: auto;
-            min-height: 100vh;
-        }
-
-        section {
-            background: var(--bg-card);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid var(--border-card);
-            border-radius: var(--radius-xl);
-            padding: 40px 30px;
-            margin-bottom: 24px;
-            box-shadow: var(--shadow-sm);
-            /* Sửa lỗi scroll giật khi dùng IntersectionObserver */
-            scroll-margin-top: calc(var(--header-height) + 20px); 
-        }
-
-        h2 {
-            font-size: clamp(24px, 4vw, 28px);
-            font-weight: 800;
-            letter-spacing: -0.8px;
-            margin-bottom: 24px;
-            color: var(--text-heading);
-        }
-
-        p {
-            color: var(--text-muted);
-            font-size: 15px;
-            margin-bottom: 16px;
-            line-height: 1.6;
-        }
-
-        /* --- 5. HERO & CALCULATOR --- */
-        .hero-grid {
-            display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            gap: 40px;
-            align-items: center;
-        }
-
-        .hero-left h1 {
-            font-size: clamp(32px, 5vw, 46px);
-            font-weight: 800;
-            line-height: 1.15;
-            letter-spacing: -1.5px;
-            margin-bottom: 16px;
-            color: var(--text-heading);
-        }
-
-        .hero-left .tagline {
-            font-size: clamp(16px, 2vw, 18px);
-            color: var(--text-main);
-            margin-bottom: 24px;
-            font-weight: 500;
-        }
-
-        .calc-box {
-            background: var(--calc-bg);
-            border: 1px solid var(--border-glass);
-            border-radius: var(--radius-xl);
-            padding: 28px;
-            box-shadow: var(--shadow-md);
-        }
-
-        .calc-box h3 {
-            font-size: 18px;
-            font-weight: 700;
-            margin-bottom: 20px;
-            color: var(--primary-color);
-        }
-
-        .form-group { margin-bottom: 18px; }
-        .form-group label {
-            display: block;
-            font-size: 13px;
-            font-weight: 600;
-            margin-bottom: 8px;
-            color: var(--text-muted);
-            text-transform: uppercase;
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 14px 16px;
-            font-family: var(--font-stack);
-            /* SỬA LỖI: Cần tối thiểu 16px để chặn auto-zoom trên Safari iOS */
-            font-size: 16px; 
-            font-weight: 500;
-            border: 1px solid var(--border-glass);
-            border-radius: var(--radius-md);
-            background: var(--input-bg);
-            color: var(--text-main);
-            outline: none;
-            transition: all 0.2s ease;
-            appearance: none;
-        }
-        .form-control:focus {
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 4px rgba(10, 132, 255, 0.15);
-        }
-
-        select.form-control {
-            background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23a1a1a6%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
-            background-repeat: no-repeat;
-            background-position: right 16px top 50%;
-            background-size: 10px auto;
-        }
-
-        .checkbox-group {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            margin-top: 12px;
-            background: var(--input-bg);
-            padding: 16px;
-            border-radius: var(--radius-md);
-            border: 1px solid var(--border-glass);
-        }
-
-        .checkbox-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 14px;
-            font-weight: 500;
+            background: transparent;
+            border: 1px solid var(--glass-border);
             color: var(--text-main);
             cursor: pointer;
+            transition: var(--transition);
         }
 
-        .calc-result {
-            margin-top: 24px;
-            padding-top: 20px;
-            border-top: 1px dashed var(--border-glass);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .result-label { font-size: 15px; font-weight: 700; color: var(--text-muted); }
-        .result-price { font-size: 28px; font-weight: 800; color: var(--accent-green); }
-
-        /* --- 6. COMPONENTS (Cards, Table, Buttons) --- */
-        .grid-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            margin-top: 16px;
-            align-items: stretch; /* SỬA LỖI: Chiều cao bằng nhau */
-        }
-
-        .app-card {
-            background: var(--bg-glass);
-            border: 1px solid var(--border-card);
-            border-radius: var(--radius-lg);
-            padding: 24px;
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column; /* SỬA LỖI: Setup flex để card co giãn theo chiều cao */
-            height: 100%;
-        }
-        
-        .app-card p { flex-grow: 1; margin-bottom: 0; } /* SỬA LỖI: Đẩy nội dung dãn đều */
-        .app-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
-        .card-icon { font-size: 32px; margin-bottom: 16px; display: inline-block; }
-        .card-title { font-size: 18px; font-weight: 700; margin-bottom: 10px; color: var(--text-heading); }
-
-        /* SỬA LỖI: Wrapper bảo vệ Table không vỡ layout khi tràn viền trên điện thoại */
-        .table-responsive {
-            width: 100%;
-            overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
-            margin-top: 10px;
-            border-radius: var(--radius-md);
-            background: var(--menu-bg);
-        }
-
-        .price-table { width: 100%; border-collapse: collapse; white-space: nowrap; }
-        .price-table th { text-align: left; padding: 16px; font-size: 13px; font-weight: 700; text-transform: uppercase; color: var(--text-muted); background: rgba(0,0,0,0.05); }
-        [data-theme="dark"] .price-table th { background: rgba(255,255,255,0.05); }
-        .price-table td { padding: 18px 16px; font-size: 15px; font-weight: 500; color: var(--text-main); border-bottom: 1px solid var(--border-glass); }
-
-        .quick-call-left {
-            position: fixed;
-            left: 24px;
-            bottom: 24px;
-            background: var(--primary-color);
-            color: #ffffff;
-            padding: 14px 22px;
-            border-radius: 100px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 15px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            box-shadow: 0 8px 24px rgba(10, 132, 255, 0.4);
-            z-index: 1010;
-            transition: all 0.3s;
-        }
-
-        .quick-call-left:hover {
-            background: var(--primary-hover);
+        .btn-icon:hover {
+            background: var(--card-bg);
             transform: scale(1.05);
         }
 
+        /* Hero Section */
+        .hero {
+            padding: 160px 0 80px;
+            text-align: center;
+            position: relative;
+        }
+
+        /* Gradient background for hero */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(0,113,227,0.15) 0%, rgba(255,255,255,0) 70%);
+            z-index: -1;
+            pointer-events: none;
+        }
+        [data-theme="dark"] .hero::before {
+            background: radial-gradient(circle, rgba(41,151,255,0.15) 0%, rgba(0,0,0,0) 70%);
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 800;
+            letter-spacing: -1.5px;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            background: linear-gradient(135deg, var(--text-main) 0%, var(--text-muted) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: clamp(1.1rem, 2vw, 1.5rem);
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 40px;
+            font-weight: 400;
+        }
+
+        /* Location & Contact Section */
+        .contact-section {
+            padding: 60px 0 100px;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            align-items: stretch;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+        }
+
+        /* Layout yêu cầu: Link local map nằm bên trái */
+        .map-card {
+            position: relative;
+            overflow: hidden;
+            min-height: 350px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(145deg, var(--card-bg), var(--bg-color));
+        }
+
+        .map-visual {
+            position: absolute;
+            inset: 0;
+            opacity: 0.1;
+            background-image: radial-gradient(var(--text-muted) 1px, transparent 1px);
+            background-size: 20px 20px;
+            z-index: 1;
+        }
+
+        .map-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .map-content svg {
+            width: 64px;
+            height: 64px;
+            color: var(--accent-color);
+            margin-bottom: 16px;
+        }
+
+        .btn-map {
+            background: var(--text-main);
+            color: var(--bg-color);
+            margin-top: 24px;
+        }
+        .btn-map:hover {
+            background: var(--text-muted);
+            color: var(--bg-color);
+        }
+
+        .info-card h2 {
+            font-size: 2rem;
+            margin-bottom: 24px;
+            letter-spacing: -0.5px;
+        }
+
+        .info-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+        }
+
+        .info-item svg {
+            width: 24px;
+            height: 24px;
+            color: var(--accent-color);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .info-text strong {
+            display: block;
+            margin-bottom: 4px;
+            font-size: 1.1rem;
+        }
+        
+        .info-text span {
+            color: var(--text-muted);
+        }
+
+        /* Footer */
         footer {
-            background: var(--bg-glass);
-            backdrop-filter: blur(20px);
-            border-top: 1px solid var(--border-glass);
-            padding: 30px 24px;
-            margin-top: 40px;
+            margin-top: auto;
+            padding: 40px 0;
+            border-top: 1px solid var(--glass-border);
             text-align: center;
             color: var(--text-muted);
-            font-size: 13px;
+            font-size: 0.9rem;
         }
 
-        /* =======================================================
-           7. MEDIA QUERIES (4 BREAKPOINTS CHUẨN)
-           ======================================================= */
-
-        /* LAPTOP (1024px - 1439px) */
-        @media (max-width: 1439px) {
-            main { max-width: 1000px; }
-            .hero-grid { grid-template-columns: 1.1fr 0.9fr; gap: 30px; }
-            nav a { padding: 8px 14px; font-size: 13px; }
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 16px;
         }
 
-        /* TABLET (768px - 1023px) */
-        @media (max-width: 1023px) {
-            header {
-                grid-template-columns: auto 1fr auto; 
-                gap: 15px;
-            }
-            nav {
-                width: 100%;
-                overflow-x: auto; 
-                justify-content: flex-start;
-                padding: 6px;
-                -webkit-overflow-scrolling: touch;
-            }
-            nav::-webkit-scrollbar { display: none; }
-            .logo-text { display: none; } 
-            
-            main { max-width: 100%; padding: 0 20px; }
-            /* Chuyển layout Hero thành 1 cột trên Tablet để không bóp méo Form */
-            .hero-grid { grid-template-columns: 1fr; gap: 30px; } 
-            section { padding: 30px 24px; }
+        .social-links a {
+            color: var(--text-muted);
+            transition: var(--transition);
         }
 
-        /* MOBILE (320px - 767px) */
-        @media (max-width: 767px) {
-            header {
-                grid-template-columns: 1fr auto; 
-                height: 60px;
-                padding: 0 16px;
+        .social-links a:hover {
+            color: var(--text-main);
+        }
+
+        /* Animations */
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(255, 59, 48, 0.4); }
+            70% { box-shadow: 0 0 0 15px rgba(255, 59, 48, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 59, 48, 0); }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Design (Mobile First mindset, adjusted for desktop) */
+        @media (max-width: 992px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
             }
-            :root { --header-height: 60px; }
-
-            main {
-                padding: 0 16px;
-                /* Nhường không gian cho Bottom Nav + Safe Area iPhone */
-                margin-bottom: calc(90px + env(safe-area-inset-bottom, 20px));
+            /* Đảm bảo map vẫn nổi bật trên mobile */
+            .map-card {
+                order: 2; /* Trừ phi muốn map lên đầu, theo UX mobile Info thường lên trước, nhưng yêu cầu map bên trái nên giữ nguyên logic PC */
+                min-height: 250px;
             }
-
-            section { padding: 24px 16px; scroll-margin-top: calc(var(--header-height) + 16px); }
-            .grid-cards { grid-template-columns: 1fr; } /* Thẻ trên mobile xếp dọc */
-
-            /* Đẩy nút gọi lên khỏi Bottom Nav */
-            .quick-call-left {
-                left: 16px;
-                bottom: calc(90px + env(safe-area-inset-bottom, 20px)); 
-                padding: 12px 18px;
-                font-size: 14px;
+            .info-card {
+                order: 1;
             }
+        }
 
-            /* CHUYỂN NAV THÀNH BOTTOM MENU KIỂU APP */
-            nav {
-                position: fixed;
-                bottom: 0;
-                left: 0;
-                width: 100%;
-                background: var(--bg-glass);
-                backdrop-filter: saturate(180%) blur(20px);
-                -webkit-backdrop-filter: saturate(180%) blur(20px);
-                border-radius: 0;
-                border-top: 1px solid var(--border-glass);
-                /* SỬA LỖI: Hỗ trợ Safe Area (tai thỏ/home bar iPhone) */
-                padding: 10px 10px calc(10px + env(safe-area-inset-bottom, 16px)) 10px;
-                gap: 8px;
-                justify-content: flex-start;
-                z-index: 1000;
-                box-shadow: 0 -4px 20px rgba(0,0,0,0.05);
+        @media (max-width: 576px) {
+            .nav-inner {
+                padding: 12px 16px;
             }
-            [data-theme="dark"] nav { box-shadow: 0 -4px 20px rgba(0,0,0,0.3); }
-
-            nav a {
-                flex-direction: column;
-                justify-content: center;
-                padding: 8px 12px;
-                font-size: 11px;
-                border-radius: 14px;
-                min-width: 70px;
-                gap: 4px;
-                background: transparent;
+            .logo span {
+                display: none; /* Thu gọn logo trên mobile cực nhỏ */
             }
-
-            nav a svg {
-                display: block; 
-                width: 22px;
-                height: 22px;
-                margin-bottom: 2px;
+            .btn-call span {
+                display: none; /* Chỉ hiện icon gọi trên mobile nhỏ để tiết kiệm không gian */
             }
-
-            nav a.active {
-                background: var(--menu-bg);
-                transform: scale(1);
-                box-shadow: none;
+            .btn-call {
+                padding: 12px;
+                border-radius: 50%;
+            }
+            .card {
+                padding: 24px;
             }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <a href="#section1" class="logo-area" aria-label="Trang chủ Nguyễn Hồng">
-            <div class="logo-img-wrapper">
-                <img src="https://raw.githubusercontent.com/thuexemaynguyenhong/app/refs/heads/main/IMG_1620.png" alt="Logo Thuê Xe Máy Nguyễn Hồng" width="36" height="36">
-            </div>
-            <span class="logo-text">Nguyễn Hồng</span>
-        </a>
-        
-        <nav id="app-nav" aria-label="Menu chính">
-            <a href="#section1" class="active">
-                <svg viewBox="0 0 24 24"><path d="M7,2H17A2,2 0 0,1 19,4V20A2,2 0 0,1 17,22H7A2,2 0 0,1 5,20V4A2,2 0 0,1 7,2M7,4V8H17V4H7M7,10V12H9V10H7M11,10V12H13V10H11M15,10V12H17V10H15M7,14V16H9V14H7M11,14V16H13V14H11M15,14V16H17V14H15M7,18V20H9V18H7M11,18V20H13V18H11M15,18V20H17V18H15Z"/></svg>
-                Tính Giá
-            </a>
-            <a href="#section2">
-                <svg viewBox="0 0 24 24"><path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"/></svg>
-                Giới Thiệu
-            </a>
-            <a href="#section3">
-                <svg viewBox="0 0 24 24"><path d="M16 11.78L20.24 4.45L21.97 5.45L16.74 14.5L10.23 10.75L5.46 19H22V21H2V3H4V17.54L9.5 8L16 11.78Z"/></svg>
-                Dịch Vụ
-            </a>
-            <a href="#section4">
-                <svg viewBox="0 0 24 24"><path d="M3,6H21V18H3V6M3,4C1.9,4 1,4.9 1,6V18C1,19.1 1.9,20 3,20H21C22.1,20 23,19.1 23,18V6C23,4.9 22.1,4 21,4H3M8,13H16V11H8V13Z"/></svg>
-                Bảng Giá
-            </a>
-            <a href="#section6">
-                <svg viewBox="0 0 24 24"><path d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"/></svg>
-                Ưu Điểm
-            </a>
-            <a href="#section10">
-                <svg viewBox="0 0 24 24"><path d="M6.62,10.79C8.06,13.62 10.38,15.93 13.21,17.38L15.41,15.18C15.69,14.9 16.08,14.82 16.43,14.93C17.55,15.3 18.75,15.5 20,15.5A1,1 0 0,1 21,16.5V20A1,1 0 0,1 20,21A17,17 0 0,1 3,4A1,1 0 0,1 4,3H7.5A1,1 0 0,1 8.5,4C8.5,5.25 8.7,6.45 9.07,7.57C9.18,7.92 9.1,8.31 8.82,8.59L6.62,10.79Z"/></svg>
-                Liên Hệ
-            </a>
-        </nav>
-
-        <div class="header-actions">
-            <button id="theme-toggle" class="theme-btn" aria-label="Đổi giao diện Sáng/Tối">
-                <svg class="sun-icon" viewBox="0 0 24 24"><path d="M12,18C15.31,18 18,15.31 18,12C18,8.69 15.31,6 12,6C8.69,6 6,8.69 6,12C6,15.31 8.69,18 12,18M12,20C7.58,20 4,16.42 4,12C4,7.58 7.58,4 12,4C16.42,4 20,7.58 20,12C20,16.42 16.42,20 12,20M11,1.5H13V4.5H11V1.5M11,19.5H13V22.5H11V19.5M3.51,5.63L5.63,3.51L7.75,5.63L5.63,7.75L3.51,5.63M16.25,18.37L18.37,16.25L20.49,18.37L18.37,20.49L16.25,18.37M2.5,11H5.5V13H2.5V11M18.5,11H21.5V13H18.5V11M5.63,20.49L3.51,18.37L5.63,16.25L7.75,18.37L5.63,20.49M18.37,3.51L20.49,5.63L18.37,7.75L16.25,5.63L18.37,3.51Z"/></svg>
-                <svg class="moon-icon" viewBox="0 0 24 24"><path d="M17.75,4.09L15.22,6.03L16.13,9.09L13.5,7.28L10.87,9.09L11.78,6.03L9.25,4.09L12.44,4L13.5,1L14.56,4L17.75,4.09M21.25,11L19.61,12.25L20.2,14.23L18.5,13.06L16.8,14.23L17.39,12.25L15.75,11L17.81,10.95L18.5,9L19.19,10.95L21.25,11M18.97,15.95C19.8,15.87 20.69,17.05 20.16,17.8C19.84,18.25 19.5,18.67 19.11,19.07C15.14,23.04 8.7,23.04 4.73,19.07C0.76,15.1 0.76,8.66 4.73,4.69C5.13,4.3 5.55,3.96 6,3.64C6.75,3.11 7.93,4 7.85,4.83C7.62,6.96 8.05,9.15 9.38,10.96C10.94,13.09 13.47,14.35 16.14,14.53C17.06,14.59 18,15.93 18.97,15.95M17.33,17.97C14.5,17.81 11.7,16.64 9.53,14.5C7.36,12.33 6.19,9.5 6.03,6.67C3.13,8.72 2.61,12.72 4.67,15.62C6.72,18.52 10.72,19.04 13.62,16.97C14.9,16.03 16.27,17.15 17.33,17.97Z"/></svg>
-            </button>
+    <!-- Header / Navigation -->
+    <header id="header">
+        <div class="container">
+            <nav class="nav-inner glass reveal active">
+                <a href="https://github.com/thuexemaynguyenhong/app/" class="logo" aria-label="Trang chủ">
+                    <img src="https://raw.githubusercontent.com/thuexemaynguyenhong/app/refs/heads/main/IMG_1620.png" alt="Logo" loading="lazy">
+                    <span>Nguyễn Hồng</span>
+                </a>
+                <div class="nav-actions">
+                    <!-- Theme Toggle -->
+                    <button class="btn-icon" id="themeToggle" aria-label="Đổi giao diện Sáng/Tối">
+                        <svg id="moonIcon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg>
+                        <svg id="sunIcon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg>
+                    </button>
+                    <!-- Quick Call (Gọi ngay) -->
+                    <a href="tel:0388907364" class="btn btn-call" aria-label="Gọi điện thoại ngay">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                        <span>0388.907.364</span>
+                    </a>
+                </div>
+            </nav>
         </div>
     </header>
 
+    <!-- Main Content -->
     <main>
-        <section id="section1">
-            <div class="hero-grid">
-                <div class="hero-left">
-                    <h1>Thuê Xe Máy Hiện Đại Tại Hà Nội</h1>
-                    <p class="tagline">Trải nghiệm dịch vụ thuê xe máy thông minh chuẩn công nghệ mới. Nhanh chóng, an toàn, hỗ trợ 24/7 toàn thành phố.</p>
-                    <p>Hệ thống hỗ trợ công cụ tính toán chi phí minh bạch tức thì, giúp bạn tối ưu ngân sách di chuyển mà không lo phát sinh chi phí ẩn.</p>
-                </div>
-                <div class="hero-right">
-                    <div class="calc-box">
-                        <h3>Tính Giá Thuê Xe Online</h3>
-                        <div class="form-group">
-                            <label for="motorType">Loại Xe Máy</label>
-                            <select id="motorType" class="form-control" onchange="calculatePrice()">
-                                <option value="120000">Xe Số Đời Mới (Wave, Sirius...) - 120k/ngày</option>
-                                <option value="180000">Xe Tay Ga Thường (Vision...) - 180k/ngày</option>
-                                <option value="300000">Xe Tay Ga Cao Cấp (SH Mode...) - 300k/ngày</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="rentalDays">Số Ngày Thuê</label>
-                            <input type="number" id="rentalDays" class="form-control" value="1" min="1" max="90" oninput="calculatePrice()">
-                        </div>
-                        <div class="form-group">
-                            <label>Dịch Vụ Bổ Sung</label>
-                            <div class="checkbox-group">
-                                <label class="checkbox-item">
-                                    <input type="checkbox" id="insurance" value="20000" onchange="calculatePrice()">
-                                    Bảo hiểm xe (+20k/ngày)
-                                </label>
-                                <label class="checkbox-item">
-                                    <input type="checkbox" id="delivery" value="50000" onchange="calculatePrice()">
-                                    Giao xe tận nơi (+50k cố định)
-                                </label>
-                            </div>
-                        </div>
-                        <div class="calc-result">
-                            <span class="result-label">Tạm Tính:</span>
-                            <span class="result-price" id="totalPrice">120.000 đ</span>
-                        </div>
+        <!-- Hero Section -->
+        <section class="hero container reveal">
+            <h1>Hành trình của bạn,<br>Bắt đầu từ đây.</h1>
+            <p>Dịch vụ cho thuê xe máy cao cấp tại trung tâm Hà Nội. Nhanh chóng, thủ tục đơn giản, xe chất lượng cao đảm bảo an toàn tuyệt đối cho mọi chuyến đi.</p>
+        </section>
+
+        <!-- Contact & Map Section -->
+        <section class="contact-section container reveal">
+            <div class="contact-grid">
+                
+                <!-- Left Column: Map (Bắt buộc theo yêu cầu) -->
+                <a href="https://maps.app.goo.gl/UusWJ35x28xaAmsm7?g_st=ic" target="_blank" rel="noopener noreferrer" class="card map-card" aria-label="Mở bản đồ Google Maps">
+                    <div class="map-visual"></div>
+                    <div class="map-content">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                        <h3>Vị trí của chúng tôi</h3>
+                        <p style="color: var(--text-muted); margin-top: 8px;">Xem vị trí chính xác trên Google Maps</p>
+                        <span class="btn btn-map">Chỉ đường ngay</span>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="section2">
-            <h2>Giới Thiệu Về Chúng Tôi</h2>
-            <p>Thuê Xe Máy Nguyễn Hồng tự hào là đơn vị tiên phong ứng dụng công nghệ quản lý hiện đại vào dịch vụ cho thuê xe máy tại trung tâm Quận Hoàn Kiếm, Hà Nội.</p>
-            <p>Chúng tôi tập trung vào việc đem lại những chiếc xe vận hành êm ái, an toàn tuyệt đối và quy trình chăm sóc khách hàng tận tâm nhất.</p>
-        </section>
-
-        <section id="section3">
-            <h2>Dịch Vụ Đa Dạng</h2>
-            <div class="grid-cards">
-                <div class="app-card">
-                    <span class="card-icon">✈️</span>
-                    <div class="card-title">Thuê Theo Ngày</div>
-                    <p>Phù hợp cho khách tham quan phố cổ, check-in các địa điểm nổi tiếng linh hoạt.</p>
-                </div>
-                <div class="app-card">
-                    <span class="card-icon">💼</span>
-                    <div class="card-title">Thuê Dài Hạn</div>
-                    <p>Chiết khấu cực sâu cho sinh viên, người đi công tác lâu ngày tại Hà Nội.</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="section4">
-            <h2>Bảng Giá Tham Khảo</h2>
-            <p>Cam kết giá cạnh tranh nhất khu vực Cửa Nam, Hoàn Kiếm.</p>
-            <div class="table-responsive">
-                <table class="price-table">
-                    <thead>
-                        <tr>
-                            <th>Dòng Xe</th>
-                            <th>Giá/Ngày</th>
-                            <th>Ghi Chú</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Xe Số Đời Mới</td>
-                            <td>120.000 đ</td>
-                            <td>Tiết kiệm xăng</td>
-                        </tr>
-                        <tr>
-                            <td>Xe Tay Ga Tiêu Chuẩn</td>
-                            <td>180.000 đ</td>
-                            <td>Cốp rộng rãi</td>
-                        </tr>
-                        <tr>
-                            <td>Xe Tay Ga Hạng Sang</td>
-                            <td>300.000 đ</td>
-                            <td>Đẳng cấp, xịn xò</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-
-        <section id="section6">
-            <h2>Tại Sao Nên Chọn Nguyễn Hồng?</h2>
-            <div class="grid-cards">
-                <div class="app-card">
-                    <div class="card-title">✨ Chất lượng xe tuyệt hảo</div>
-                    <p>Bảo dưỡng định kỳ mỗi tháng, thay dầu máy thường xuyên đảm bảo an toàn.</p>
-                </div>
-                <div class="app-card">
-                    <div class="card-title">📍 Vị trí trung tâm</div>
-                    <p>Tọa lạc ngay mặt ngõ Lê Duẩn, Hoàn Kiếm thuận tiện cho việc di chuyển.</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="section10">
-            <h2>Liên Hệ Với Chúng Tôi</h2>
-            <p>📍 <strong>Địa chỉ:</strong> Số 7, Ngõ 149A Lê Duẩn, Cửa Nam, Hoàn Kiếm, Hà Nội</p>
-            <p>📞 <strong>Hotline:</strong> 0388907364</p>
-            <p style="margin-top: 20px;">
-                <a href="https://maps.app.goo.gl/UusWJ35x28xaAmsm7?g_st=ic" target="_blank" rel="noopener noreferrer" style="display:inline-block; background: var(--primary-color); color: white; padding: 10px 20px; border-radius: 100px; text-decoration: none; font-weight: bold;">
-                    🗺️ Xem Bản Đồ
                 </a>
-            </p>
-        </section>
 
+                <!-- Right Column: Info -->
+                <div class="card info-card">
+                    <h2>Thông tin liên hệ</h2>
+                    <address style="font-style: normal;">
+                        <ul class="info-list">
+                            <li class="info-item">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                                <div class="info-text">
+                                    <strong>Địa chỉ cửa hàng</strong>
+                                    <span>Số 7, Ngõ 149A Lê Duẩn<br>Cửa Nam, Hoàn Kiếm, Hà Nội, Việt Nam</span>
+                                </div>
+                            </li>
+                            <li class="info-item">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                                <div class="info-text">
+                                    <strong>Hotline tư vấn (24/7)</strong>
+                                    <span><a href="tel:0388907364" style="color: inherit; text-decoration: underline;">0388 907 364</a></span>
+                                </div>
+                            </li>
+                            <li class="info-item">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                                <div class="info-text">
+                                    <strong>Giờ hoạt động</strong>
+                                    <span>Tất cả các ngày trong tuần</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </address>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <a href="tel:0388907364" class="quick-call-left" aria-label="Gọi điện thoại ngay">
-        <svg viewBox="0 0 24 24" style="width: 20px; height: 20px; fill: currentColor;">
-            <path d="M6.62,10.79C8.06,13.62 10.38,15.93 13.21,17.38L15.41,15.18C15.69,14.9 16.08,14.82 16.43,14.93C17.55,15.3 18.75,15.5 20,15.5A1,1 0 0,1 21,16.5V20A1,1 0 0,1 20,21A17,17 0 0,1 3,4A1,1 0 0,1 4,3H7.5A1,1 0 0,1 8.5,4C8.5,5.25 8.7,6.45 9.07,7.57C9.18,7.92 9.1,8.31 8.82,8.59L6.62,10.79Z"/>
-        </svg>
-        Gọi: 0388907364
-    </a>
-
+    <!-- Footer -->
     <footer>
-        &copy; 2026 Thuê Xe Máy Nguyễn Hồng.<br>Trải nghiệm chuẩn Ultra App.
+        <div class="container">
+            <div class="social-links">
+                <a href="https://github.com/thuexemaynguyenhong/" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
+                </a>
+                <a href="https://maps.app.goo.gl/UusWJ35x28xaAmsm7?g_st=ic" target="_blank" rel="noopener noreferrer" aria-label="Google Maps">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                </a>
+            </div>
+            <p>&copy; 2026 Thuê Xe Máy Nguyễn Hồng. Trải nghiệm dịch vụ số 1 Hà Nội.</p>
+        </div>
     </footer>
 
+    <!-- ==========================================
+         JAVASCRIPT (Vanilla JS, No Frameworks)
+         ========================================== -->
     <script>
-        // 1. Quản lý Dark/Light Mode
-        const themeToggle = document.getElementById('theme-toggle');
-        const htmlElement = document.documentElement;
-        
-        const savedTheme = localStorage.getItem('app-theme') || 'light';
-        htmlElement.setAttribute('data-theme', savedTheme);
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. Logic Theme Toggle (Dark/Light Mode)
+            const htmlEl = document.documentElement;
+            const themeBtn = document.getElementById('themeToggle');
+            const sunIcon = document.getElementById('sunIcon');
+            const moonIcon = document.getElementById('moonIcon');
 
-        themeToggle.addEventListener('click', () => {
-            const currentTheme = htmlElement.getAttribute('data-theme');
-            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-            htmlElement.setAttribute('data-theme', newTheme);
-            localStorage.setItem('app-theme', newTheme);
-        });
-
-        // 2. Tính tiền tự động
-        function calculatePrice() {
-            const pricePerDay = parseInt(document.getElementById('motorType').value);
-            const days = parseInt(document.getElementById('rentalDays').value) || 1;
-            let insuranceCost = document.getElementById('insurance').checked ? 20000 * days : 0;
-            let deliveryCost = document.getElementById('delivery').checked ? 50000 : 0;
-            
-            const total = (pricePerDay * days) + insuranceCost + deliveryCost;
-            document.getElementById('totalPrice').innerText = total.toLocaleString('vi-VN') + ' đ';
-        }
-
-        // 3. SỬA LỖI HIỆU NĂNG JS: Dùng Intersection Observer thay vì Window onScroll
-        const sections = document.querySelectorAll('section');
-        const navLinks = document.querySelectorAll('#app-nav a');
-
-        // Tùy chỉnh vùng theo dõi (rootMargin) bù lại chiều cao của Header
-        const observerOptions = {
-            root: null,
-            rootMargin: '-80px 0px -40% 0px', 
-            threshold: 0.1
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const currentId = entry.target.getAttribute('id');
-                    
-                    navLinks.forEach(link => {
-                        link.classList.remove('active');
-                        if (link.getAttribute('href') === `#${currentId}`) {
-                            link.classList.add('active');
-                            
-                            // Auto cuộn menu ngang trên Tablet/Mobile
-                            if (window.innerWidth <= 1023) {
-                                link.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
-                            }
-                        }
-                    });
+            // Lấy theme từ localStorage hoặc system preference
+            const getPreferredTheme = () => {
+                const savedTheme = localStorage.getItem('theme');
+                if (savedTheme) {
+                    return savedTheme;
                 }
-            });
-        }, observerOptions);
+                return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            };
 
-        sections.forEach(section => {
-            observer.observe(section);
+            const setTheme = (theme) => {
+                htmlEl.setAttribute('data-theme', theme);
+                localStorage.setItem('theme', theme);
+                // Đổi icon tương ứng
+                if (theme === 'dark') {
+                    sunIcon.style.display = 'block';
+                    moonIcon.style.display = 'none';
+                } else {
+                    sunIcon.style.display = 'none';
+                    moonIcon.style.display = 'block';
+                }
+            };
+
+            // Khởi tạo theme
+            setTheme(getPreferredTheme());
+
+            // Xử lý click nút toggle
+            themeBtn.addEventListener('click', () => {
+                const currentTheme = htmlEl.getAttribute('data-theme');
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                setTheme(newTheme);
+            });
+
+            // 2. Logic Scroll Animations (Hiệu ứng hiện đại)
+            const reveals = document.querySelectorAll('.reveal');
+            const revealOptions = {
+                threshold: 0.1,
+                rootMargin: "0px 0px -50px 0px"
+            };
+
+            const revealOnScroll = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) return;
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target); // Chỉ chạy 1 lần để tối ưu hiệu suất
+                });
+            }, revealOptions);
+
+            reveals.forEach(reveal => {
+                revealOnScroll.observe(reveal);
+            });
+            
+            // Kích hoạt ngay cho phần tử hiển thị lúc load
+            setTimeout(() => {
+                document.querySelectorAll('.reveal').forEach(el => {
+                    const rect = el.getBoundingClientRect();
+                    if (rect.top < window.innerHeight) {
+                        el.classList.add('active');
+                    }
+                });
+            }, 100);
         });
     </script>
+
+    <!-- Script yêu cầu thêm vào cuối body -->
+    <script src="https://thuexemayhanoi.github.io/shop/motoai_v40_bm25plus_final.js" defer></script>
 </body>
-</html
+</html>
