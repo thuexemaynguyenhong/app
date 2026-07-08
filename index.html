@@ -10,6 +10,11 @@
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://thuexemaynguyenhong.github.io/app/">
 
+    <!-- Tối ưu hiệu năng tải tài nguyên ngoại vi -->
+    <link rel="preconnect" href="https://raw.githubusercontent.com" crossorigin>
+    <meta name="theme-color" content="#fbfbfd" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+
     <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/thuexemaynguyenhong/app/refs/heads/main/IMG_1620.png">
     <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/thuexemaynguyenhong/app/refs/heads/main/IMG_1620.png">
 
@@ -25,6 +30,7 @@
     <meta property="twitter:description" content="Dịch vụ cho thuê xe máy uy tín tại trung tâm Hà Nội. Gọi ngay: 0388907364.">
     <meta property="twitter:image" content="https://raw.githubusercontent.com/thuexemaynguyenhong/app/refs/heads/main/IMG_1620.png">
 
+    <!-- LcoalBusiness Schema -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -55,6 +61,43 @@
         "closes": "21:00"
       },
       "priceRange": "$$"
+    }
+    </script>
+
+    <!-- FAQ Schema (Giúp hiện snippet câu hỏi trên Google Search) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "Cửa hàng có dịch vụ giao xe máy tận nơi không?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Hoàn toàn có! Chúng tôi hỗ trợ giao và nhận xe tận nơi miễn phí (hoặc phụ phí cực kỳ rẻ tùy khoảng cách) tại các bến xe, ga tàu, và khách sạn thuộc khu vực nội thành Hà Nội (đặc biệt là quận Hoàn Kiếm, Đống Đa, Ba Đình)."
+        }
+      },{
+        "@type": "Question",
+        "name": "Người nước ngoài có được thuê xe máy không? Thủ tục thế nào?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Có. Du khách nước ngoài chỉ cần để lại Hộ chiếu (Passport) bản gốc còn hạn visa, cùng với một khoản tiền cọc nhất định. Chúng tôi có nhân viên giao tiếp tiếng Anh cơ bản để hỗ trợ làm hợp đồng nhanh chóng."
+        }
+      },{
+        "@type": "Question",
+        "name": "Tôi không mang bằng lái xe máy thì sao?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Theo luật giao thông đường bộ Việt Nam, người điều khiển phương tiện trên 50cc bắt buộc phải có Giấy phép lái xe. Cửa hàng khuyến cáo bạn nên mang theo GPLX để đảm bảo an toàn và tuân thủ pháp luật."
+        }
+      },{
+        "@type": "Question",
+        "name": "Hệ thống tính tiền App Ultra là gì? Nó hoạt động ra sao?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "App Ultra là một ứng dụng quản lý tính cước thông minh độc quyền được Nguyễn Hồng tích hợp. Hệ thống này tự động theo dõi thời gian nhận/trả xe, tính toán chi phí thuê dựa trên gói bạn chọn một cách tự động, chính xác tuyệt đối."
+        }
+      }]
     }
     </script>
 
@@ -127,6 +170,19 @@
             transition: color var(--transition);
         }
 
+        /* Accessibility: Skip link */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--accent-color);
+            color: white;
+            padding: 8px;
+            z-index: 2000;
+            transition: top 0.2s;
+        }
+        .skip-link:focus { top: 0; }
+
         /* Utility Classes */
         .container {
             width: 100%;
@@ -158,7 +214,7 @@
         .section-desc {
             text-align: center;
             color: var(--text-muted);
-            max-width: 800px; /* Tăng max-width để phù hợp nội dung dài */
+            max-width: 800px; 
             margin: 0 auto 48px;
             font-size: 1.1rem;
             line-height: 1.6;
@@ -579,9 +635,7 @@
         
         .price span { font-size: 1.2rem; color: var(--text-muted); font-weight: 400; }
 
-        /* ==========================================
-           RENTAL PRICE CALCULATOR STYLES
-           ========================================== */
+        /* Calculator Styles */
         .calc-input, .calc-select {
             width: 100%;
             padding: 14px 16px;
@@ -878,8 +932,10 @@
 </head>
 <body>
 
+    <a href="#main-content" class="skip-link">Bỏ qua để đến nội dung chính</a>
+
     <a href="tel:0388907364" class="floating-call" aria-label="Gọi điện thoại đặt xe ngay">
-        <div class="call-icon-wrapper">
+        <div class="call-icon-wrapper" aria-hidden="true">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                 <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
             </svg>
@@ -893,8 +949,8 @@
     <header id="header">
         <div class="container">
             <nav class="nav-inner glass reveal active" aria-label="Điều hướng chính">
-                <a href="#trang-chu" class="logo" aria-label="Trở về Trang chủ">
-                    <img src="https://raw.githubusercontent.com/thuexemaynguyenhong/app/refs/heads/main/IMG_1620.png" alt="Logo Nguyễn Hồng Thuê Xe Máy Hà Nội" width="32" height="32" loading="lazy">
+                <a href="#trang-chu" class="logo" aria-label="Trở về Trang chủ Nguyễn Hồng">
+                    <img src="https://raw.githubusercontent.com/thuexemaynguyenhong/app/refs/heads/main/IMG_1620.png" alt="Logo Nguyễn Hồng Thuê Xe Máy Hà Nội" width="32" height="32" fetchpriority="high" decoding="async">
                     <span>Nguyễn Hồng</span>
                 </a>
                 
@@ -905,12 +961,12 @@
                     </div>
 
                     <button class="btn-icon" id="themeToggle" aria-label="Đổi giao diện Sáng/Tối">
-                        <svg id="moonIcon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg>
-                        <svg id="sunIcon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg>
+                        <svg id="moonIcon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg>
+                        <svg id="sunIcon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg>
                     </button>
                     
-                    <button class="btn-icon" id="menuToggle" aria-label="Mở Menu">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg>
+                    <button class="btn-icon" id="menuToggle" aria-label="Mở Menu" aria-expanded="false" aria-controls="sidebar">
+                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg>
                     </button>
                 </div>
             </nav>
@@ -918,39 +974,39 @@
     </header>
 
     <div class="overlay" id="overlay" aria-hidden="true"></div>
-    <aside class="sidebar" id="sidebar" aria-label="Menu mở rộng">
+    <aside class="sidebar" id="sidebar" aria-label="Menu mở rộng" aria-hidden="true">
         <div class="sidebar-header">
             <div class="logo">
                 <img src="https://raw.githubusercontent.com/thuexemaynguyenhong/app/refs/heads/main/IMG_1620.png" alt="Logo" width="32" height="32" loading="lazy">
                 <span>Danh mục</span>
             </div>
             <button class="btn-icon" id="closeMenu" aria-label="Đóng Menu" style="width:36px; height:36px;">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>
+                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>
             </button>
         </div>
-        <nav class="sidebar-nav" aria-label="Menu điều hướng">
-            <a href="#trang-chu"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg> Trang chủ</a>
-            <a href="#gioi-thieu"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg> Giới thiệu</a>
-            <a href="#bang-gia"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="5" rx="2"></rect><line x1="2" x2="22" y1="10" y2="10"></line></svg> Bảng giá</a>
-            <a href="#tinh-gia"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect><line x1="8" y1="6" x2="16" y2="6"></line><line x1="8" y1="10" x2="8.01" y2="10"></line><line x1="12" y1="10" x2="12.01" y2="10"></line><line x1="16" y1="10" x2="16.01" y2="10"></line><line x1="8" y1="14" x2="8.01" y2="14"></line><line x1="12" y1="14" x2="12.01" y2="14"></line><line x1="16" y1="14" x2="16.01" y2="14"></line><line x1="8" y1="18" x2="8.01" y2="18"></line><line x1="12" y1="18" x2="12.01" y2="18"></line><line x1="16" y1="18" x2="16.01" y2="18"></line></svg> Ước tính chi phí</a>
-            <a href="#dong-xe"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"></path><circle cx="7" cy="17" r="2"></circle><path d="M9 17h6"></path><circle cx="17" cy="17" r="2"></circle></svg> Dòng xe</a>
-            <a href="#thu-tuc"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" x2="8" y1="13" y2="13"></line><line x1="16" x2="8" y1="17" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg> Thủ tục</a>
-            <a href="#kinh-nghiem-thue-xe"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg> Cẩm nang du lịch</a>
-            <a href="#khuyen-mai"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" x2="12" y1="22.08" y2="12"></line></svg> Khuyến mãi</a>
-            <a href="#danh-gia"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg> Đánh giá</a>
-            <a href="#tien-ich"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"></path></svg> Tiện ích</a>
-            <a href="#hoi-dap"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" x2="12.01" y1="17" y2="17"></line></svg> Hỏi đáp</a>
-            <a href="#chinh-sach"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" x2="13" y1="13" y2="13"></line><line x1="16" x2="13" y1="17" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg> Chính sách</a>
-            <a href="#bao-mat"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"></path></svg> Bảo mật</a>
-            <a href="#lien-he"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg> Liên hệ</a>
+        <nav class="sidebar-nav" aria-label="Menu điều hướng sidebar">
+            <a href="#trang-chu"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg> Trang chủ</a>
+            <a href="#gioi-thieu"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg> Giới thiệu</a>
+            <a href="#bang-gia"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="5" rx="2"></rect><line x1="2" x2="22" y1="10" y2="10"></line></svg> Bảng giá</a>
+            <a href="#tinh-gia"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect><line x1="8" y1="6" x2="16" y2="6"></line><line x1="8" y1="10" x2="8.01" y2="10"></line><line x1="12" y1="10" x2="12.01" y2="10"></line><line x1="16" y1="10" x2="16.01" y2="10"></line><line x1="8" y1="14" x2="8.01" y2="14"></line><line x1="12" y1="14" x2="12.01" y2="14"></line><line x1="16" y1="14" x2="16.01" y2="14"></line><line x1="8" y1="18" x2="8.01" y2="18"></line><line x1="12" y1="18" x2="12.01" y2="18"></line><line x1="16" y1="18" x2="16.01" y2="18"></line></svg> Ước tính chi phí</a>
+            <a href="#dong-xe"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"></path><circle cx="7" cy="17" r="2"></circle><path d="M9 17h6"></path><circle cx="17" cy="17" r="2"></circle></svg> Dòng xe</a>
+            <a href="#thu-tuc"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" x2="8" y1="13" y2="13"></line><line x1="16" x2="8" y1="17" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg> Thủ tục</a>
+            <a href="#kinh-nghiem-thue-xe"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg> Cẩm nang du lịch</a>
+            <a href="#khuyen-mai"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" x2="12" y1="22.08" y2="12"></line></svg> Khuyến mãi</a>
+            <a href="#danh-gia"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg> Đánh giá</a>
+            <a href="#tien-ich"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"></path></svg> Tiện ích</a>
+            <a href="#hoi-dap"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" x2="12.01" y1="17" y2="17"></line></svg> Hỏi đáp</a>
+            <a href="#chinh-sach"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" x2="13" y1="13" y2="13"></line><line x1="16" x2="13" y1="17" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg> Chính sách</a>
+            <a href="#bao-mat"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"></path></svg> Bảo mật</a>
+            <a href="#lien-he"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg> Liên hệ</a>
         </nav>
         <div class="sidebar-footer">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
             Giờ mở cửa: 09h - 21h
         </div>
     </aside>
 
-    <main>
+    <main id="main-content">
         
         <section id="trang-chu" class="hero container reveal">
             <h1>Thuê Xe Máy Hà Nội Uy Tín,<br>Hành Trình Bắt Đầu Từ Đây.</h1>
@@ -970,13 +1026,13 @@
                     <p>Với kinh nghiệm nhiều năm hoạt động trong lĩnh vực cho thuê xe du lịch, cơ sở Nguyễn Hồng thấu hiểu rằng một chiếc xe tốt chính là chìa khóa cho một chuyến đi hoàn hảo. Chúng tôi cam kết mang đến những chiếc xe máy (cả xe số và xe tay ga) đời mới nhất, hoạt động êm ái, thích hợp để di chuyển trong nội thành đông đúc lẫn những cung đường phượt ngoại ô.</p>
                     <p>Mỗi chiếc xe trước khi giao đến tay khách hàng đều phải trải qua quá trình bảo dưỡng định kỳ khắt khe: kiểm tra phanh, lốp, thay nhớt và hệ thống đèn còi. Sự an toàn của bạn luôn được chúng tôi đặt lên hàng đầu.</p>
                     <ul class="info-list" style="gap: 12px; margin-top: 24px;">
-                        <li class="info-item"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> 100% Xe được bảo dưỡng định kỳ hàng tháng.</li>
-                        <li class="info-item"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Đội ngũ hỗ trợ sự cố tận nơi 24/7 nội thành Hà Nội.</li>
+                        <li class="info-item"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> 100% Xe được bảo dưỡng định kỳ hàng tháng.</li>
+                        <li class="info-item"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Đội ngũ hỗ trợ sự cố tận nơi 24/7 nội thành Hà Nội.</li>
                     </ul>
                 </div>
                 <div style="border-radius: var(--radius-md); overflow: hidden; height: 100%; min-height: 250px; background: linear-gradient(135deg, var(--card-hover), var(--bg-color)); display: flex; align-items: center; justify-content: center; padding: 24px; text-align: center;">
                     <div>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="var(--accent-color)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 16px;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"></path></svg>
+                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="var(--accent-color)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 16px;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"></path></svg>
                         <h4 style="font-size: 1.2rem; color: var(--text-main);">Đảm Bảo An Toàn Tuyệt Đối</h4>
                         <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 8px;">Kiểm tra kỹ thuật nghiêm ngặt 12 bước<br>trước khi bàn giao xe cho khách hàng.</p>
                     </div>
@@ -1017,7 +1073,7 @@
                 <div style="display: flex; flex-direction: column; gap: 24px;">
                     
                     <div>
-                        <label style="font-weight: 600; margin-bottom: 8px; display: block; color: var(--text-main);">1. Chọn loại xe bạn muốn thuê</label>
+                        <label for="calc-type" style="font-weight: 600; margin-bottom: 8px; display: block; color: var(--text-main);">1. Chọn loại xe bạn muốn thuê</label>
                         <select id="calc-type" class="calc-select">
                             <option value="xeso">Xe Số (Phổ thông, bền bỉ)</option>
                             <option value="xega">Xe Ga (Cao cấp, tiện lợi)</option>
@@ -1026,19 +1082,19 @@
 
                     <div>
                         <label style="font-weight: 600; margin-bottom: 8px; display: block; color: var(--text-main);">2. Gói thời gian thuê</label>
-                        <div class="calc-period-group">
-                            <button class="calc-btn-period active" data-period="day">Theo Ngày</button>
-                            <button class="calc-btn-period" data-period="week">Theo Tuần</button>
-                            <button class="calc-btn-period" data-period="month">Theo Tháng</button>
+                        <div class="calc-period-group" role="group" aria-label="Chọn gói thời gian thuê">
+                            <button type="button" class="calc-btn-period active" data-period="day">Theo Ngày</button>
+                            <button type="button" class="calc-btn-period" data-period="week">Theo Tuần</button>
+                            <button type="button" class="calc-btn-period" data-period="month">Theo Tháng</button>
                         </div>
                     </div>
 
                     <div>
-                        <label style="font-weight: 600; margin-bottom: 8px; display: block; color: var(--text-main);">3. Số <span id="calc-period-label">ngày</span> thuê</label>
+                        <label for="calc-duration" style="font-weight: 600; margin-bottom: 8px; display: block; color: var(--text-main);">3. Số <span id="calc-period-label">ngày</span> thuê</label>
                         <input type="number" id="calc-duration" class="calc-input" value="1" min="1">
                     </div>
 
-                    <div class="calc-result-box">
+                    <div class="calc-result-box" aria-live="polite">
                         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
                             <span style="color: var(--text-muted); font-size: 1.05rem;">Tiền cọc yêu cầu (Dự kiến):</span>
                             <strong id="calc-deposit" style="font-size: 1.15rem; color: var(--text-main);">1.000.000 ₫</strong>
@@ -1086,17 +1142,17 @@
             <div class="card">
                 <div class="grid-3" style="text-align: center;">
                     <div>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--accent-color)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 16px;"><rect width="18" height="14" x="3" y="5" rx="2" ry="2"></rect><line x1="3" x2="21" y1="9" y2="9"></line><line x1="7" x2="9" y1="15" y2="15"></line></svg>
+                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--accent-color)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 16px;"><rect width="18" height="14" x="3" y="5" rx="2" ry="2"></rect><line x1="3" x2="21" y1="9" y2="9"></line><line x1="7" x2="9" y1="15" y2="15"></line></svg>
                         <h3 style="margin-bottom: 8px;">1. Chuẩn bị giấy tờ</h3>
                         <p style="color: var(--text-muted); font-size: 0.95rem;">Bạn chỉ cần cung cấp Căn cước công dân (CCCD)/CMND hoặc Hộ chiếu (Passport) bản gốc hợp lệ và còn hạn sử dụng.</p>
                     </div>
                     <div>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--accent-color)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 16px;"><path d="M12 2v20"></path><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--accent-color)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 16px;"><path d="M12 2v20"></path><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
                         <h3 style="margin-bottom: 8px;">2. Tiền cọc (Linh hoạt)</h3>
                         <p style="color: var(--text-muted); font-size: 0.95rem;">Đặt cọc tiền mặt hoặc chuyển khoản từ 1 - 2 triệu đồng (tùy giá trị xe). Có thể giữ lại xe máy cá nhân của bạn thay cho tiền cọc.</p>
                     </div>
                     <div>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--accent-color)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 16px;"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"></path><path d="M15 18H9"></path><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"></path><circle cx="17" cy="18" r="2"></circle><circle cx="7" cy="18" r="2"></circle></svg>
+                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--accent-color)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 16px;"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"></path><path d="M15 18H9"></path><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"></path><circle cx="17" cy="18" r="2"></circle><circle cx="7" cy="18" r="2"></circle></svg>
                         <h3 style="margin-bottom: 8px;">3. Nhận xe & Đi thôi!</h3>
                         <p style="color: var(--text-muted); font-size: 0.95rem;">Đọc kỹ và ký hợp đồng thuê xe. Nhân viên sẽ bàn giao xe kèm theo 2 mũ bảo hiểm đạt chuẩn và áo mưa miễn phí.</p>
                     </div>
@@ -1104,11 +1160,10 @@
             </div>
         </section>
 
-        <!-- SEO Content Section: Added to fulfill the ~1500 words and dense keywords naturally -->
         <section id="kinh-nghiem-thue-xe" class="container reveal">
             <h2 class="section-title">Cẩm Nang & Kinh Nghiệm Thuê Xe Máy Hà Nội</h2>
             <p class="section-desc">Những thông tin hữu ích giúp bạn có một chuyến đi an toàn, tiết kiệm và trọn vẹn tại thủ đô.</p>
-            <div class="card seo-text-block">
+            <article class="card seo-text-block">
                 <h3>1. Tại sao nên chọn dịch vụ thuê xe máy để khám phá Hà Nội?</h3>
                 <p>Hà Nội, thủ đô ngàn năm văn hiến, nổi tiếng với những con phố cổ nhỏ hẹp, những gánh hàng rong ven đường và nhịp sống nhộn nhịp. Nếu di chuyển bằng ô tô hay taxi, bạn rất dễ gặp tình trạng kẹt xe và khó tiếp cận các quán ăn vỉa hè nằm sâu trong ngõ. Chính vì thế, <strong>thuê xe máy Hà Nội</strong> là giải pháp tối ưu nhất. Nó mang lại cho bạn sự tự do về thời gian, lịch trình linh hoạt và cảm nhận trọn vẹn không khí của thành phố một cách chân thực nhất.</p>
                 <p>Khu vực trung tâm như Hoàn Kiếm, đường Lê Duẩn, Cửa Nam là những điểm xuất phát tuyệt vời. Từ cửa hàng <strong>Thuê Xe Máy Nguyễn Hồng</strong> (Số 7, Ngõ 149A Lê Duẩn), bạn chỉ mất vài phút để di chuyển đến Ga Hà Nội, Lăng Bác, Phố Cổ hay Hồ Gươm.</p>
@@ -1129,7 +1184,7 @@
                     <li><strong>Chú ý đường chỉ dẫn trên Google Maps:</strong> Đôi khi Google Maps sẽ chỉ bạn đi vào đường cấm ô tô nhưng xe máy đi được, hoặc ngược lại. Hãy kết hợp nhìn biển báo thực tế trên đường.</li>
                     <li><strong>Xử lý khi xe gặp sự cố:</strong> Nếu xe bị xịt lốp hoặc chết máy, đừng quá hoảng hốt. Xung quanh Hà Nội có rất nhiều tiệm sửa xe nhỏ. Nếu lỗi do kỹ thuật xe, hãy gọi ngay vào <strong>Hotline 0388907364</strong> của Nguyễn Hồng để được đội ngũ của chúng tôi ra hỗ trợ hoặc đổi xe tận nơi.</li>
                 </ul>
-            </div>
+            </article>
         </section>
 
         <section id="khuyen-mai" class="container reveal">
@@ -1147,17 +1202,17 @@
             <p class="section-desc">Sự hài lòng của khách hàng là thước đo thành công. Hàng ngàn du khách đã trải nghiệm dịch vụ và để lại những đánh giá chân thực nhất.</p>
             <div class="grid-3">
                 <article class="card">
-                    <div style="color: #ffc107; font-size: 1.5rem; margin-bottom: 16px;" aria-label="5 sao">★★★★★</div>
+                    <div style="color: #ffc107; font-size: 1.5rem; margin-bottom: 16px;" aria-label="Đánh giá 5 sao">★★★★★</div>
                     <p style="color: var(--text-muted); font-style: italic; margin-bottom: 16px;">"Mình từ Sài Gòn ra chơi, tìm chỗ thuê xe máy Hoàn Kiếm thì thấy trang web của Nguyễn Hồng. Xe rất mới, lốp gai còn nguyên đi rất bám đường. Chú chủ nhà cực kỳ thân thiện nhiệt tình chỉ đường và gợi ý quán phở ăn ngon. Lần sau ra Hà Nội chắc chắn sẽ thuê lại ở đây!"</p>
                     <strong>- Minh Hoàng (TP.HCM)</strong>
                 </article>
                 <article class="card">
-                    <div style="color: #ffc107; font-size: 1.5rem; margin-bottom: 16px;" aria-label="5 sao">★★★★★</div>
+                    <div style="color: #ffc107; font-size: 1.5rem; margin-bottom: 16px;" aria-label="Đánh giá 5 sao">★★★★★</div>
                     <p style="color: var(--text-muted); font-style: italic; margin-bottom: 16px;">"Thủ tục mướn xe nhanh gọn lẹ. Điều mình thích nhất là cửa hàng có tích hợp App Ultra để tính tiền, quét mã cái là ra bill rõ ràng, rất minh bạch và hiện đại. Không lo bị tính nhầm giờ hay phụ thu vô lý. Giá thuê 150k cho xe số là quá rẻ so với mặt bằng chung trên phố cổ."</p>
                     <strong>- Elena Trần (Đà Nẵng)</strong>
                 </article>
                 <article class="card">
-                    <div style="color: #ffc107; font-size: 1.5rem; margin-bottom: 16px;" aria-label="5 sao">★★★★★</div>
+                    <div style="color: #ffc107; font-size: 1.5rem; margin-bottom: 16px;" aria-label="Đánh giá 5 sao">★★★★★</div>
                     <p style="color: var(--text-muted); font-style: italic; margin-bottom: 16px;">"Cửa hàng hỗ trợ giao xe máy tận khách sạn khu vực Lê Duẩn luôn, tiết kiệm được bao nhiêu thời gian và tiền taxi. Mình thuê xe Vision cốp rộng tha hồ để đồ đạc đi dạo phố. Mũ bảo hiểm của shop trang bị rất sạch sẽ, thơm tho, trong cốp có sẵn 2 bộ áo mưa nilon phòng hờ thời tiết."</p>
                     <strong>- Tuấn Anh (Hải Phòng)</strong>
                 </article>
@@ -1170,22 +1225,22 @@
             <div class="grid-4">
                 <article class="card" style="text-align: center;">
                     <div style="font-size: 2.5rem; margin-bottom: 16px;" aria-hidden="true">🪖</div>
-                    <h4>2 Mũ Bảo Hiểm Chuẩn</h4>
+                    <h3>2 Mũ Bảo Hiểm Chuẩn</h3>
                     <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 8px;">Đạt chuẩn chất lượng CR, vệ sinh sạch sẽ, khử mùi định kỳ, đảm bảo an toàn tuyệt đối cho người đội.</p>
                 </article>
                 <article class="card" style="text-align: center;">
                     <div style="font-size: 2.5rem; margin-bottom: 16px;" aria-hidden="true">🌧️</div>
-                    <h4>Áo Mưa Dự Phòng</h4>
+                    <h3>Áo Mưa Dự Phòng</h3>
                     <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 8px;">Luôn có sẵn 2 áo mưa trong cốp xe, sẵn sàng đối phó với những cơn mưa rào bất chợt của thời tiết Hà Nội.</p>
                 </article>
                 <article class="card" style="text-align: center;">
                     <div style="font-size: 2.5rem; margin-bottom: 16px;" aria-hidden="true">🗺️</div>
-                    <h4>Bản Đồ / Giá Đỡ ĐT</h4>
+                    <h3>Bản Đồ / Giá Đỡ ĐT</h3>
                     <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 8px;">Tặng kèm bản đồ giấy hoặc lắp sẵn giá đỡ điện thoại chắc chắn trên xe, hỗ trợ bạn tìm đường bằng Google Maps cực dễ dàng.</p>
                 </article>
                 <article class="card" style="text-align: center;">
                     <div style="font-size: 2.5rem; margin-bottom: 16px;" aria-hidden="true">🛠️</div>
-                    <h4>Hỗ Trợ Sự Cố 24/7</h4>
+                    <h3>Hỗ Trợ Sự Cố 24/7</h3>
                     <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 8px;">Đường dây nóng hoạt động 24/7. Cam kết đổi xe tận nơi ngay lập tức nếu xe gặp bất kỳ sự cố kỹ thuật nào ngoài ý muốn.</p>
                 </article>
             </div>
@@ -1196,19 +1251,19 @@
             <p class="section-desc">Giải đáp chi tiết và nhanh chóng những thắc mắc của bạn khi sử dụng dịch vụ thuê xe máy tại cửa hàng Nguyễn Hồng.</p>
             <div class="card seo-text-block" style="max-width: 800px; margin: 0 auto;">
                 <article style="border-bottom: 1px solid var(--glass-border); padding-bottom: 16px; margin-bottom: 16px;">
-                    <h4 style="font-size: 1.1rem; margin-bottom: 8px;">Cửa hàng có dịch vụ giao xe máy tận nơi không?</h4>
+                    <h3 style="font-size: 1.1rem; margin-bottom: 8px;">Cửa hàng có dịch vụ giao xe máy tận nơi không?</h3>
                     <p style="color: var(--text-muted);">Hoàn toàn có! Chúng tôi hỗ trợ giao và nhận xe tận nơi miễn phí (hoặc phụ phí cực kỳ rẻ tùy khoảng cách) tại các bến xe, ga tàu, và khách sạn thuộc khu vực nội thành Hà Nội (đặc biệt là quận Hoàn Kiếm, Đống Đa, Ba Đình).</p>
                 </article>
                 <article style="border-bottom: 1px solid var(--glass-border); padding-bottom: 16px; margin-bottom: 16px;">
-                    <h4 style="font-size: 1.1rem; margin-bottom: 8px;">Người nước ngoài có được thuê xe máy không? Thủ tục thế nào?</h4>
+                    <h3 style="font-size: 1.1rem; margin-bottom: 8px;">Người nước ngoài có được thuê xe máy không? Thủ tục thế nào?</h3>
                     <p style="color: var(--text-muted);">Có. Du khách nước ngoài chỉ cần để lại Hộ chiếu (Passport) bản gốc còn hạn visa, cùng với một khoản tiền cọc nhất định. Chúng tôi có nhân viên giao tiếp tiếng Anh cơ bản để hỗ trợ làm hợp đồng nhanh chóng.</p>
                 </article>
                 <article style="border-bottom: 1px solid var(--glass-border); padding-bottom: 16px; margin-bottom: 16px;">
-                    <h4 style="font-size: 1.1rem; margin-bottom: 8px;">Tôi không mang bằng lái xe máy thì sao?</h4>
+                    <h3 style="font-size: 1.1rem; margin-bottom: 8px;">Tôi không mang bằng lái xe máy thì sao?</h3>
                     <p style="color: var(--text-muted);">Theo luật giao thông đường bộ Việt Nam, người điều khiển phương tiện trên 50cc bắt buộc phải có Giấy phép lái xe. Cửa hàng khuyến cáo bạn nên mang theo GPLX để đảm bảo an toàn và tuân thủ pháp luật. Mọi trách nhiệm liên quan đến vi phạm giao thông do không có bằng lái sẽ do khách hàng tự chịu trách nhiệm.</p>
                 </article>
                 <article>
-                    <h4 style="font-size: 1.1rem; margin-bottom: 8px;">Hệ thống tính tiền App Ultra là gì? Nó hoạt động ra sao?</h4>
+                    <h3 style="font-size: 1.1rem; margin-bottom: 8px;">Hệ thống tính tiền App Ultra là gì? Nó hoạt động ra sao?</h3>
                     <p style="color: var(--text-muted);">App Ultra là một ứng dụng quản lý tính cước thông minh độc quyền được Nguyễn Hồng tích hợp. Hệ thống này tự động theo dõi thời gian nhận/trả xe, tính toán chi phí thuê dựa trên gói bạn chọn (theo ngày, giờ hoặc km) một cách tự động, chính xác tuyệt đối. Nó loại bỏ hoàn toàn việc tính nhẩm thủ công, giúp minh bạch hóa đơn cho cả khách hàng và cửa hàng.</p>
                 </article>
             </div>
@@ -1220,7 +1275,7 @@
             <div class="card grid-2">
                 <div>
                     <h3 style="font-size: 1.3rem; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="var(--accent-color)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" x2="8" y1="13" y2="13"></line><line x1="16" x2="8" y1="17" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="var(--accent-color)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" x2="8" y1="13" y2="13"></line><line x1="16" x2="8" y1="17" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
                         Quy định chung cho người thuê
                     </h3>
                     <ul class="info-list" style="gap: 12px; color: var(--text-muted);">
@@ -1231,7 +1286,7 @@
                 </div>
                 <div>
                     <h3 style="font-size: 1.3rem; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="var(--accent-color)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" x2="12" y1="22.08" y2="12"></line></svg>
+                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="var(--accent-color)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" x2="12" y1="22.08" y2="12"></line></svg>
                         Trách nhiệm xử lý sự cố, hỏng hóc
                     </h3>
                     <ul class="info-list" style="gap: 12px; color: var(--text-muted);">
@@ -1248,14 +1303,14 @@
             <div class="card grid-2">
                 <div>
                     <h3 style="font-size: 1.3rem; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="var(--accent-color)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="var(--accent-color)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
                         An toàn giấy tờ tùy thân
                     </h3>
                     <p style="color: var(--text-muted); line-height: 1.6;">Khi làm thủ tục, giấy tờ tùy thân (như CCCD, CMND, Hộ chiếu) của quý khách sẽ được niêm phong và cất giữ an toàn tuyệt đối tại két sắt của cửa hàng. Nguyễn Hồng cam kết hoàn trả nguyên vẹn 100% ngay lập tức khi hoàn tất việc thanh lý hợp đồng trả xe.</p>
                 </div>
                 <div>
                     <h3 style="font-size: 1.3rem; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="var(--accent-color)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="var(--accent-color)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
                         Quản lý Dữ liệu trên App Ultra
                     </h3>
                     <p style="color: var(--text-muted); line-height: 1.6;">Lịch sử di chuyển, thông tin liên lạc và dữ liệu thanh toán của bạn trên hệ thống App Ultra chỉ được sử dụng duy nhất cho mục đích quản lý đơn hàng và xuất hóa đơn dịch vụ. Chúng tôi tuyên bố không bao giờ bán, trao đổi hay cung cấp thông tin của bạn cho bất kỳ bên thứ ba nào vì mục đích quảng cáo.</p>
@@ -1268,11 +1323,11 @@
             <p class="section-desc">Hãy đến trực tiếp địa chỉ của chúng tôi tại quận Hoàn Kiếm hoặc nhấc máy gọi ngay Hotline để được tư vấn dòng xe phù hợp và hỗ trợ giao xe sớm nhất.</p>
             <div class="grid-2" style="align-items: stretch;">
                 
-                <a href="https://maps.app.goo.gl/UusWJ35x28xaAmsm7?g_st=ic" target="_blank" rel="noopener noreferrer" class="card map-card" aria-label="Mở bản đồ Google Maps">
+                <a href="https://maps.app.goo.gl/UusWJ35x28xaAmsm7?g_st=ic" target="_blank" rel="noopener noreferrer" class="card map-card" aria-label="Mở bản đồ Google Maps của Nguyễn Hồng">
                     <div class="map-visual"></div>
                     <div class="map-content">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                        <h3>Vị trí của chúng tôi</h3>
+                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                        <h3 style="font-size: 1.5rem;">Vị trí của chúng tôi</h3>
                         <p style="color: var(--text-muted); margin-top: 8px;">Xem vị trí chính xác của Cơ sở Nguyễn Hồng trên Google Maps</p>
                         <span class="btn btn-map">Chỉ đường qua Maps</span>
                     </div>
@@ -1283,28 +1338,28 @@
                     <address style="font-style: normal;">
                         <ul class="info-list">
                             <li class="info-item">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg>
                                 <div class="info-text">
                                     <strong>Trụ sở chính:</strong>
                                     <span>Số 7, Ngõ 149A Lê Duẩn<br>Phường Cửa Nam, Quận Hoàn Kiếm, Hà Nội</span>
                                 </div>
                             </li>
                             <li class="info-item">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
                                 <div class="info-text">
                                     <strong>Hotline tư vấn đặt xe (24/7):</strong>
                                     <a href="tel:0388907364" style="font-weight: 500; text-decoration: underline;">0388.907.364</a>
                                 </div>
                             </li>
                             <li class="info-item">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+                                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
                                 <div class="info-text">
                                     <strong>Email hỗ trợ khách hàng:</strong>
                                     <a href="mailto:thuhong1102hn@gmail.com">thuhong1102hn@gmail.com</a>
                                 </div>
                             </li>
                             <li class="info-item">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
                                 <div class="info-text">
                                     <strong>Giờ hoạt động phục vụ:</strong>
                                     <span style="font-weight: 600; color: var(--accent-color);">09:00 Sáng - 21:00 Tối</span>
@@ -1331,33 +1386,33 @@
                     
                     <div class="footer-actions">
                         <a href="tel:0388907364" class="btn btn-call" style="justify-content: flex-start; padding: 14px 24px;">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
                             Gọi Ngay: 0388.907.364
                         </a>
                         <a href="https://maps.app.goo.gl/UusWJ35x28xaAmsm7?g_st=ic" target="_blank" rel="noopener noreferrer" class="btn" style="justify-content: flex-start; background: var(--text-main); color: var(--bg-color); padding: 14px 24px;">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg>
                             Mở Bản Đồ Vị Trí
                         </a>
                     </div>
                 </div>
 
                 <div class="footer-links-wrapper">
-                    <h4>Danh Mục Dịch Vụ</h4>
-                    <div style="display: flex; flex-direction: column; gap: 12px;">
-                        <a href="#trang-chu"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg> Trang chủ</a>
-                        <a href="#gioi-thieu"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg> Giới thiệu</a>
-                        <a href="#bang-gia"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="5" rx="2"></rect><line x1="2" x2="22" y1="10" y2="10"></line></svg> Bảng giá thuê xe</a>
-                        <a href="#tinh-gia"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect><line x1="8" y1="6" x2="16" y2="6"></line><line x1="8" y1="10" x2="8.01" y2="10"></line><line x1="12" y1="10" x2="12.01" y2="10"></line><line x1="16" y1="10" x2="16.01" y2="10"></line><line x1="8" y1="14" x2="8.01" y2="14"></line><line x1="12" y1="14" x2="12.01" y2="14"></line><line x1="16" y1="14" x2="16.01" y2="14"></line><line x1="8" y1="18" x2="8.01" y2="18"></line><line x1="12" y1="18" x2="12.01" y2="18"></line><line x1="16" y1="18" x2="16.01" y2="18"></line></svg> Công cụ tính giá</a>
-                        <a href="#dong-xe"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"></path></svg> Dòng xe phục vụ</a>
-                        <a href="#thu-tuc"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path></svg> Thủ tục cần biết</a>
+                    <h4 id="footer-menu-1">Danh Mục Dịch Vụ</h4>
+                    <div style="display: flex; flex-direction: column; gap: 12px;" aria-labelledby="footer-menu-1">
+                        <a href="#trang-chu"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg> Trang chủ</a>
+                        <a href="#gioi-thieu"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg> Giới thiệu</a>
+                        <a href="#bang-gia"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="5" rx="2"></rect><line x1="2" x2="22" y1="10" y2="10"></line></svg> Bảng giá thuê xe</a>
+                        <a href="#tinh-gia"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect><line x1="8" y1="6" x2="16" y2="6"></line><line x1="8" y1="10" x2="8.01" y2="10"></line><line x1="12" y1="10" x2="12.01" y2="10"></line><line x1="16" y1="10" x2="16.01" y2="10"></line><line x1="8" y1="14" x2="8.01" y2="14"></line><line x1="12" y1="14" x2="12.01" y2="14"></line><line x1="16" y1="14" x2="16.01" y2="14"></line><line x1="8" y1="18" x2="8.01" y2="18"></line><line x1="12" y1="18" x2="12.01" y2="18"></line><line x1="16" y1="18" x2="16.01" y2="18"></line></svg> Công cụ tính giá</a>
+                        <a href="#dong-xe"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"></path></svg> Dòng xe phục vụ</a>
+                        <a href="#thu-tuc"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path></svg> Thủ tục cần biết</a>
                     </div>
                     <div style="display: flex; flex-direction: column; gap: 12px;">
-                        <a href="#kinh-nghiem-thue-xe"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg> Cẩm nang Hà Nội</a>
-                        <a href="#khuyen-mai"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg> Mã khuyến mãi</a>
-                        <a href="#tien-ich"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"></path></svg> Tiện ích miễn phí</a>
-                        <a href="#chinh-sach"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" x2="13" y1="13" y2="13"></line><line x1="16" x2="13" y1="17" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg> Chính sách thuê</a>
-                        <a href="#bao-mat"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"></path></svg> Bảo mật thông tin</a>
-                        <a href="#lien-he"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path></svg> Liên hệ cửa hàng</a>
+                        <a href="#kinh-nghiem-thue-xe"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg> Cẩm nang Hà Nội</a>
+                        <a href="#khuyen-mai"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg> Mã khuyến mãi</a>
+                        <a href="#tien-ich"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"></path></svg> Tiện ích miễn phí</a>
+                        <a href="#chinh-sach"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" x2="13" y1="13" y2="13"></line><line x1="16" x2="13" y1="17" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg> Chính sách thuê</a>
+                        <a href="#bao-mat"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"></path></svg> Bảo mật thông tin</a>
+                        <a href="#lien-he"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path></svg> Liên hệ cửa hàng</a>
                     </div>
                 </div>
 
@@ -1366,22 +1421,22 @@
             <div class="footer-bottom">
                 <div class="social-icons">
                     <a href="https://thuexemaynguyenhong.github.io/app/" target="_blank" rel="noopener noreferrer" aria-label="Web App Tính Tiền Ultra">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
                     </a>
-                    <a href="https://about.me/thuexemaynguyenhong/" target="_blank" rel="noopener noreferrer" aria-label="About.me">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                    <a href="https://about.me/thuexemaynguyenhong/" target="_blank" rel="noopener noreferrer" aria-label="Hồ sơ About.me">
+                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
                     </a>
-                    <a href="https://www.instagram.com/thuexemaynguyenhong" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                    <a href="https://www.instagram.com/thuexemaynguyenhong" target="_blank" rel="noopener noreferrer" aria-label="Trang Instagram">
+                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
                     </a>
-                    <a href="https://letterboxd.com/thuexemayvn/" target="_blank" rel="noopener noreferrer" aria-label="Letterboxd">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect><line x1="7" y1="2" x2="7" y2="22"></line><line x1="17" y1="2" x2="17" y2="22"></line><line x1="2" y1="12" x2="22" y2="12"></line><line x1="2" y1="7" x2="7" y2="7"></line><line x1="2" y1="17" x2="7" y2="17"></line><line x1="17" y1="17" x2="22" y2="17"></line><line x1="17" y1="7" x2="22" y2="7"></line></svg>
+                    <a href="https://letterboxd.com/thuexemayvn/" target="_blank" rel="noopener noreferrer" aria-label="Trang Letterboxd">
+                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect><line x1="7" y1="2" x2="7" y2="22"></line><line x1="17" y1="2" x2="17" y2="22"></line><line x1="2" y1="12" x2="22" y2="12"></line><line x1="2" y1="7" x2="7" y2="7"></line><line x1="2" y1="17" x2="7" y2="17"></line><line x1="17" y1="17" x2="22" y2="17"></line><line x1="17" y1="7" x2="22" y2="7"></line></svg>
                     </a>
-                    <a href="https://github.com/thuexemaynguyenhong" target="_blank" rel="noopener noreferrer" aria-label="Github">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
+                    <a href="https://github.com/thuexemaynguyenhong" target="_blank" rel="noopener noreferrer" aria-label="Trang Github">
+                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
                     </a>
-                    <a href="https://www.facebook.com/thuexemaynguyenhong" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                    <a href="https://www.facebook.com/thuexemaynguyenhong" target="_blank" rel="noopener noreferrer" aria-label="Trang Facebook">
+                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
                     </a>
                 </div>
                 <p style="margin-top: 16px;">© 2026 Thuê Xe Máy Nguyễn Hồng. Phát triển bởi <a href="https://motoopen.github.io/chothuexemayhanoi/" target="_blank" rel="noopener" style="color: var(--accent-color); text-decoration: none;">Cho Thuê Xe Máy Hà Nội</a>. Thiết kế tối ưu hóa & Chuẩn SEO.</p>
@@ -1407,12 +1462,21 @@
             const setTheme = (theme) => {
                 htmlEl.setAttribute('data-theme', theme);
                 localStorage.setItem('theme', theme);
+                
+                // Cập nhật thẻ meta theme-color tương ứng để mượt mà trên Mobile
+                const metaThemeLight = document.querySelector('meta[name="theme-color"][media="(prefers-color-scheme: light)"]');
+                const metaThemeDark = document.querySelector('meta[name="theme-color"][media="(prefers-color-scheme: dark)"]');
+
                 if (theme === 'dark') {
                     sunIcon.style.display = 'block';
                     moonIcon.style.display = 'none';
+                    if(metaThemeLight) metaThemeLight.setAttribute('content', '#000000');
+                    if(metaThemeDark) metaThemeDark.setAttribute('content', '#000000');
                 } else {
                     sunIcon.style.display = 'none';
                     moonIcon.style.display = 'block';
+                    if(metaThemeLight) metaThemeLight.setAttribute('content', '#fbfbfd');
+                    if(metaThemeDark) metaThemeDark.setAttribute('content', '#fbfbfd');
                 }
             };
             setTheme(getPreferredTheme());
@@ -1422,7 +1486,7 @@
                 setTheme(currentTheme === 'dark' ? 'light' : 'dark');
             });
 
-            // 2. Logic Sidebar Menu (Off-Canvas)
+            // 2. Logic Sidebar Menu (Off-Canvas) kèm theo quản lý Accessibility
             const menuToggle = document.getElementById('menuToggle');
             const closeMenu = document.getElementById('closeMenu');
             const sidebar = document.getElementById('sidebar');
@@ -1433,12 +1497,21 @@
                 sidebar.classList.add('active');
                 overlay.classList.add('active');
                 document.body.style.overflow = 'hidden'; 
+                
+                // Thuộc tính Accessibility
+                menuToggle.setAttribute('aria-expanded', 'true');
+                sidebar.setAttribute('aria-hidden', 'false');
+                closeMenu.focus(); // Focus vào nút đóng khi mở menu
             };
 
             const closeSidebar = () => {
                 sidebar.classList.remove('active');
                 overlay.classList.remove('active');
                 document.body.style.overflow = '';
+                
+                // Thuộc tính Accessibility
+                menuToggle.setAttribute('aria-expanded', 'false');
+                sidebar.setAttribute('aria-hidden', 'true');
             };
 
             menuToggle.addEventListener('click', openSidebar);
@@ -1449,7 +1522,7 @@
                 link.addEventListener('click', closeSidebar);
             });
 
-            // 3. Logic Scroll Animations (Intersection Observer Optimization)
+            // 3. Logic Scroll Animations (Intersection Observer)
             const reveals = document.querySelectorAll('.reveal');
             const revealOptions = {
                 threshold: 0.1,
@@ -1491,27 +1564,16 @@
 
             let currentPeriod = 'day';
 
-            // Dữ liệu giá (Bạn có thể thay đổi để khớp với thực tế)
             const pricing = {
-                xeso: {
-                    day: 150000,
-                    week: 900000,
-                    month: 3000000,
-                    deposit: 1000000
-                },
-                xega: {
-                    day: 200000,
-                    week: 1200000,
-                    month: 4000000,
-                    deposit: 1500000
-                }
+                xeso: { day: 150000, week: 900000, month: 3000000, deposit: 1000000 },
+                xega: { day: 200000, week: 1200000, month: 4000000, deposit: 1500000 }
             };
 
             const formatCurrency = (amount) => {
                 return new Intl.NumberFormat('vi-VN', { 
                     style: 'currency', 
                     currency: 'VND' 
-                }).format(amount).replace('₫', ' ₫'); // Format khoảng trắng cho đẹp
+                }).format(amount).replace('₫', ' ₫');
             };
 
             const calculatePrice = () => {
@@ -1522,26 +1584,21 @@
                 
                 const rate = pricing[type][currentPeriod];
                 const deposit = pricing[type].deposit;
-                
                 const total = rate * duration;
                 
-                // Hiển thị kết quả lên giao diện
                 calcDeposit.textContent = formatCurrency(deposit);
                 calcTotal.textContent = formatCurrency(total);
             };
 
-            // Gắn event listeners
             if(calcType && calcDuration) {
                 calcType.addEventListener('change', calculatePrice);
                 calcDuration.addEventListener('input', calculatePrice);
                 
                 periodBtns.forEach(btn => {
                     btn.addEventListener('click', (e) => {
-                        // Cập nhật UI nút được chọn
                         periodBtns.forEach(b => b.classList.remove('active'));
                         e.target.classList.add('active');
                         
-                        // Cập nhật chu kỳ và text hướng dẫn
                         currentPeriod = e.target.getAttribute('data-period');
                         const labels = { 'day': 'ngày', 'week': 'tuần', 'month': 'tháng' };
                         calcPeriodLabel.textContent = labels[currentPeriod];
@@ -1550,7 +1607,6 @@
                     });
                 });
                 
-                // Khởi tạo tính toán ban đầu
                 calculatePrice();
             }
         });
