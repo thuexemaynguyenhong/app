@@ -1,37 +1,30 @@
 <!DOCTYPE html>
 <html lang="vi" data-theme="system">
 <head>
-    <!-- ==========================================
-         SEO & META TAGS
-         ========================================== -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <title>Thuê Xe Máy Nguyễn Hồng | Dịch Vụ Xe Máy Uy Tín Tại Hà Nội</title>
-    <meta name="description" content="Dịch vụ cho thuê xe máy uy tín, nhanh chóng tại trung tâm Hà Nội. Địa chỉ: Số 7, Ngõ 149A Lê Duẩn, Hoàn Kiếm. Gọi ngay: 0388907364 để đặt xe.">
+    <meta name="description" content="Dịch vụ cho thuê xe máy uy tín, nhanh chóng tại trung tâm Hà Nội. Tích hợp tính tiền thông minh qua App Ultra. Địa chỉ: Số 7, Ngõ 149A Lê Duẩn, Hoàn Kiếm. Gọi ngay: 0388907364 để đặt xe.">
     <meta name="keywords" content="thuê xe máy hà nội, thuê xe máy hoàn kiếm, thuê xe máy lê duẩn, thuê xe máy nguyễn hồng, thue xe may ha noi, app ultra tính tiền">
     <meta name="author" content="Nguyễn Hồng">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://github.com/thuexemaynguyenhong/app/">
 
-    <!-- Favicon -->
     <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/thuexemaynguyenhong/app/refs/heads/main/IMG_1620.png">
     <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/thuexemaynguyenhong/app/refs/heads/main/IMG_1620.png">
 
-    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://github.com/thuexemaynguyenhong/app/">
     <meta property="og:title" content="Thuê Xe Máy Nguyễn Hồng | Nhanh Chóng, Giá Rẻ">
     <meta property="og:description" content="Trải nghiệm khám phá Hà Nội trọn vẹn với dịch vụ thuê xe máy chuyên nghiệp tại Số 7, Ngõ 149A Lê Duẩn.">
     <meta property="og:image" content="https://raw.githubusercontent.com/thuexemaynguyenhong/app/refs/heads/main/IMG_1620.png">
 
-    <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://github.com/thuexemaynguyenhong/app/">
     <meta property="twitter:title" content="Thuê Xe Máy Nguyễn Hồng">
     <meta property="twitter:description" content="Dịch vụ cho thuê xe máy uy tín tại trung tâm Hà Nội. Gọi ngay: 0388907364.">
     <meta property="twitter:image" content="https://raw.githubusercontent.com/thuexemaynguyenhong/app/refs/heads/main/IMG_1620.png">
 
-    <!-- Schema.org for Local Business -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -65,9 +58,6 @@
     }
     </script>
 
-    <!-- ==========================================
-         CSS STYLES
-         ========================================== -->
     <style>
         :root {
             /* Light Theme Defaults */
@@ -216,7 +206,6 @@
             gap: 12px;
         }
 
-        /* Opening Hours Badge in Header */
         .header-badge {
             display: flex;
             align-items: center;
@@ -239,7 +228,7 @@
         .status-dot {
             width: 8px;
             height: 8px;
-            background-color: #34c759; /* Apple Green */
+            background-color: #34c759;
             border-radius: 50%;
             box-shadow: 0 0 8px rgba(52, 199, 89, 0.6);
             animation: blink 2s infinite;
@@ -293,9 +282,7 @@
             transform: scale(1.05);
         }
 
-        /* -------------------------------------------
-           XỊN XÒ: Floating Quick Call Button (Left)
-           ------------------------------------------- */
+        /* Floating Quick Call Button */
         .floating-call {
             position: fixed;
             bottom: 40px;
@@ -518,9 +505,14 @@
         .hero p {
             font-size: clamp(1.1rem, 2vw, 1.5rem);
             color: var(--text-muted);
-            max-width: 600px;
+            max-width: 650px;
             margin: 0 auto 40px;
             font-weight: 400;
+        }
+
+        .highlight-text {
+            color: var(--accent-color);
+            font-weight: 600;
         }
 
         /* Pricing Card */
@@ -552,6 +544,76 @@
         }
         
         .price span { font-size: 1.2rem; color: var(--text-muted); font-weight: 400; }
+
+        /* ==========================================
+           RENTAL PRICE CALCULATOR STYLES
+           ========================================== */
+        .calc-input, .calc-select {
+            width: 100%;
+            padding: 14px 16px;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--glass-border);
+            background: var(--bg-color);
+            color: var(--text-main);
+            font-family: inherit;
+            font-size: 1rem;
+            transition: var(--transition);
+            outline: none;
+            appearance: none;
+        }
+        
+        .calc-select {
+            background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%2386868b%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+            background-repeat: no-repeat;
+            background-position: right 16px top 50%;
+            background-size: 12px auto;
+        }
+
+        .calc-input:focus, .calc-select:focus {
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 3px rgba(0, 113, 227, 0.15);
+        }
+        
+        .calc-period-group {
+            display: flex;
+            gap: 8px;
+            background: var(--bg-color);
+            padding: 4px;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--glass-border);
+        }
+        
+        .calc-btn-period {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            background: transparent;
+            color: var(--text-muted);
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+            font-size: 0.95rem;
+        }
+        
+        .calc-btn-period.active {
+            background: var(--card-bg);
+            color: var(--text-main);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        [data-theme="dark"] .calc-btn-period.active {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+        }
+
+        .calc-result-box {
+            background: var(--card-bg);
+            padding: 24px;
+            border-radius: var(--radius-md);
+            margin-top: 12px;
+            border: 2px solid var(--glass-border);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
 
         /* Vehicles Card */
         .vehicle-card { text-align: center; }
@@ -654,12 +716,25 @@
         .footer-links-wrapper a {
             color: var(--text-muted);
             font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
             transition: var(--transition);
         }
         
+        .footer-links-wrapper a svg {
+            width: 16px;
+            height: 16px;
+            opacity: 0.7;
+        }
+
         .footer-links-wrapper a:hover {
             color: var(--accent-color);
             transform: translateX(4px);
+        }
+
+        .footer-links-wrapper a:hover svg {
+            opacity: 1;
         }
         
         .footer-bottom {
@@ -670,7 +745,33 @@
             font-size: 0.9rem;
         }
 
-        /* Utilities for layout */
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-top: 16px;
+        }
+
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--card-hover);
+            color: var(--text-muted);
+            transition: var(--transition);
+        }
+
+        .social-icons a:hover {
+            background: var(--accent-color);
+            color: #fff;
+            transform: translateY(-3px);
+        }
+
+        /* Utilities */
         .flex-center {
             display: flex; 
             gap: 16px; 
@@ -714,7 +815,6 @@
         }
         
         @media (max-width: 768px) {
-            /* Thu gọn Floating Call Button trên Mobile */
             .floating-call {
                 left: 20px;
                 bottom: 24px;
@@ -736,11 +836,7 @@
         @media (max-width: 576px) {
             .nav-inner { padding: 10px 16px; }
             .logo span { display: none; }
-            
-            /* Tinh chỉnh Header Badge giờ mở cửa trên Mobile */
             .header-badge { padding: 6px 12px; font-size: 0.85rem; }
-            .header-badge .time-text { letter-spacing: -0.5px; }
-            
             .card { padding: 24px; }
             .sidebar { width: 100%; right: -100%; }
         }
@@ -748,10 +844,8 @@
 </head>
 <body>
 
-    <!-- XỊN XÒ: Floating Action Button (Quick Call) -->
     <a href="tel:0388907364" class="floating-call" aria-label="Gọi điện thoại đặt xe ngay">
         <div class="call-icon-wrapper">
-            <!-- Filled Phone Icon -->
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                 <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
             </svg>
@@ -762,7 +856,6 @@
         </div>
     </a>
 
-    <!-- Header / Navigation -->
     <header id="header">
         <div class="container">
             <nav class="nav-inner glass reveal active" aria-label="Điều hướng chính">
@@ -772,19 +865,16 @@
                 </a>
                 
                 <div class="nav-actions">
-                    <!-- Opening Hours Badge -->
                     <div class="header-badge" aria-label="Giờ hoạt động: 9h đến 21h">
                         <span class="status-dot"></span>
                         <span class="time-text">09h - 21h</span>
                     </div>
 
-                    <!-- Theme Toggle -->
                     <button class="btn-icon" id="themeToggle" aria-label="Đổi giao diện Sáng/Tối">
                         <svg id="moonIcon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg>
                         <svg id="sunIcon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg>
                     </button>
                     
-                    <!-- Sidebar Toggle -->
                     <button class="btn-icon" id="menuToggle" aria-label="Mở Menu">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg>
                     </button>
@@ -793,7 +883,6 @@
         </div>
     </header>
 
-    <!-- Sidebar Off-Canvas Menu -->
     <div class="overlay" id="overlay" aria-hidden="true"></div>
     <aside class="sidebar" id="sidebar" aria-label="Menu mở rộng">
         <div class="sidebar-header">
@@ -809,12 +898,15 @@
             <a href="#trang-chu"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg> Trang chủ</a>
             <a href="#gioi-thieu"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg> Giới thiệu</a>
             <a href="#bang-gia"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="5" rx="2"></rect><line x1="2" x2="22" y1="10" y2="10"></line></svg> Bảng giá</a>
+            <a href="#tinh-gia"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect><line x1="8" y1="6" x2="16" y2="6"></line><line x1="8" y1="10" x2="8.01" y2="10"></line><line x1="12" y1="10" x2="12.01" y2="10"></line><line x1="16" y1="10" x2="16.01" y2="10"></line><line x1="8" y1="14" x2="8.01" y2="14"></line><line x1="12" y1="14" x2="12.01" y2="14"></line><line x1="16" y1="14" x2="16.01" y2="14"></line><line x1="8" y1="18" x2="8.01" y2="18"></line><line x1="12" y1="18" x2="12.01" y2="18"></line><line x1="16" y1="18" x2="16.01" y2="18"></line></svg> Ước tính chi phí</a>
             <a href="#dong-xe"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"></path><circle cx="7" cy="17" r="2"></circle><path d="M9 17h6"></path><circle cx="17" cy="17" r="2"></circle></svg> Dòng xe</a>
             <a href="#thu-tuc"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" x2="8" y1="13" y2="13"></line><line x1="16" x2="8" y1="17" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg> Thủ tục</a>
             <a href="#khuyen-mai"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" x2="12" y1="22.08" y2="12"></line></svg> Khuyến mãi</a>
             <a href="#danh-gia"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg> Đánh giá</a>
             <a href="#tien-ich"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"></path></svg> Tiện ích</a>
             <a href="#hoi-dap"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" x2="12.01" y1="17" y2="17"></line></svg> Hỏi đáp</a>
+            <a href="#chinh-sach"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" x2="13" y1="13" y2="13"></line><line x1="16" x2="13" y1="17" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg> Chính sách</a>
+            <a href="#bao-mat"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"></path></svg> Bảo mật</a>
             <a href="#lien-he"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg> Liên hệ</a>
         </nav>
         <div class="sidebar-footer">
@@ -823,20 +915,17 @@
         </div>
     </aside>
 
-    <!-- Main Content -->
     <main>
         
-        <!-- SECTION 1: Hero -->
         <section id="trang-chu" class="hero container reveal">
             <h1>Hành trình của bạn,<br>Bắt đầu từ đây.</h1>
-            <p>Dịch vụ cho thuê xe máy cao cấp tại trung tâm Hà Nội. Nhanh chóng, thủ tục đơn giản, xe chất lượng cao đảm bảo an toàn tuyệt đối cho mọi chuyến đi.</p>
+            <p>Dịch vụ cho thuê xe máy uy tín tại trung tâm Hà Nội. Quản lý hành trình và <span class="highlight-text">tính tiền tự động, minh bạch qua App Ultra</span>. Không phụ phí, không lo rủi ro.</p>
             <div class="flex-center">
                 <a href="#bang-gia" class="btn" style="background: var(--text-main); color: var(--bg-color);">Xem Bảng Giá</a>
-                <a href="#lien-he" class="btn" style="background: transparent; border: 1px solid var(--text-main); color: var(--text-main);">Bản Đồ Cửa Hàng</a>
+                <a href="https://thuexemaynguyenhong.github.io/app/" target="_blank" rel="noopener noreferrer" class="btn" style="background: transparent; border: 1px solid var(--accent-color); color: var(--accent-color);">Tính Tiền Qua App</a>
             </div>
         </section>
 
-        <!-- SECTION 2: Về Chúng Tôi -->
         <section id="gioi-thieu" class="container reveal">
             <h2 class="section-title">Về Chúng Tôi</h2>
             <p class="section-desc">Nguyễn Hồng - Tự hào là đối tác tin cậy cho hàng ngàn du khách và người dân địa phương khi cần di chuyển tiện lợi tại Hà Nội.</p>
@@ -849,27 +938,30 @@
                         <li class="info-item"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Hỗ trợ sự cố tận nơi 24/7.</li>
                     </ul>
                 </div>
-                <div style="border-radius: var(--radius-md); overflow: hidden; height: 100%; min-height: 250px; background: linear-gradient(135deg, var(--card-hover), var(--bg-color)); display: flex; align-items: center; justify-content: center;">
-                    <img src="https://raw.githubusercontent.com/thuexemaynguyenhong/app/refs/heads/main/IMG_1620.png" alt="Cửa hàng Nguyễn Hồng" width="150" height="150" style="border-radius: 50%; box-shadow: var(--shadow); object-fit: cover;" loading="lazy">
+                <div style="border-radius: var(--radius-md); overflow: hidden; height: 100%; min-height: 250px; background: linear-gradient(135deg, var(--card-hover), var(--bg-color)); display: flex; align-items: center; justify-content: center; padding: 24px; text-align: center;">
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="var(--accent-color)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 16px;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"></path></svg>
+                        <h4 style="font-size: 1.2rem; color: var(--text-main);">Đảm Bảo An Toàn</h4>
+                        <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 8px;">Kiểm tra kỹ thuật nghiêm ngặt<br>trước khi giao xe cho khách.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- SECTION 3: Bảng Giá & App Ultra -->
         <section id="bang-gia" class="container reveal">
             <h2 class="section-title">Bảng Giá & Dịch Vụ</h2>
             <p class="section-desc">Chi phí minh bạch, không phụ phí ẩn. Tích hợp tính tiền thông minh qua App Ultra.</p>
             <div class="grid-3">
                 <article class="card pricing-card">
                     <h3 style="font-size: 1.5rem;">Xe Số</h3>
-                    <div class="price">100k<span>/ngày</span></div>
+                    <div class="price">150.000đ<span>/ngày</span></div>
                     <p style="color: var(--text-muted); margin-bottom: 24px;">Siêu tiết kiệm nhiên liệu, di chuyển linh hoạt trong phố và ngõ nhỏ. Phù hợp cho (Wave, Sirius).</p>
                     <a href="tel:0388907364" class="btn" style="width: 100%; background: var(--text-main); color: var(--bg-color);">Đặt Xe Ngay</a>
                 </article>
                 <article class="card pricing-card" style="transform: scale(1.05); z-index: 2; border: 2px solid var(--accent-color);">
                     <div class="badge">Phổ Biến</div>
                     <h3 style="font-size: 1.5rem;">Xe Ga</h3>
-                    <div class="price">150k<span>/ngày</span></div>
+                    <div class="price">200.000đ<span>/ngày</span></div>
                     <p style="color: var(--text-muted); margin-bottom: 24px;">Cốp rộng tiện lợi, kiểu dáng thanh lịch hiện đại. Gồm các dòng (Vision, AirBlade, Janus).</p>
                     <a href="tel:0388907364" class="btn" style="width: 100%; background: var(--accent-color); color: #fff;">Đặt Xe Ngay</a>
                 </article>
@@ -877,12 +969,54 @@
                     <h3 style="font-size: 1.5rem;">App Ultra</h3>
                     <div class="price">Smart</div>
                     <p style="color: var(--text-muted); margin-bottom: 24px;">Thuê theo giờ, theo km? Trải nghiệm ngay hệ thống tính tiền chính xác, minh bạch qua App Ultra.</p>
-                    <a href="#lien-he" class="btn" style="width: 100%; background: var(--text-main); color: var(--bg-color);">Tìm Hiểu Thêm</a>
+                    <a href="https://thuexemaynguyenhong.github.io/app/" target="_blank" rel="noopener noreferrer" class="btn" style="width: 100%; background: var(--text-main); color: var(--bg-color);">Mở App Ngay</a>
                 </article>
             </div>
         </section>
 
-        <!-- SECTION 4: Các Dòng Xe -->
+        <section id="tinh-gia" class="container reveal">
+            <h2 class="section-title">Ước Tính Chi Phí</h2>
+            <p class="section-desc">Tính toán nhanh giá dự kiến và tiền cọc theo Ngày, Tuần hoặc Tháng.</p>
+            <div class="card" style="max-width: 600px; margin: 0 auto; background: var(--card-hover);">
+                <div style="display: flex; flex-direction: column; gap: 24px;">
+                    
+                    <div>
+                        <label style="font-weight: 600; margin-bottom: 8px; display: block; color: var(--text-main);">1. Chọn loại xe</label>
+                        <select id="calc-type" class="calc-select">
+                            <option value="xeso">Xe Số (Phổ thông)</option>
+                            <option value="xega">Xe Ga (Cao cấp)</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label style="font-weight: 600; margin-bottom: 8px; display: block; color: var(--text-main);">2. Gói thời gian</label>
+                        <div class="calc-period-group">
+                            <button class="calc-btn-period active" data-period="day">Theo Ngày</button>
+                            <button class="calc-btn-period" data-period="week">Theo Tuần</button>
+                            <button class="calc-btn-period" data-period="month">Theo Tháng</button>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label style="font-weight: 600; margin-bottom: 8px; display: block; color: var(--text-main);">3. Số <span id="calc-period-label">ngày</span> thuê</label>
+                        <input type="number" id="calc-duration" class="calc-input" value="1" min="1">
+                    </div>
+
+                    <div class="calc-result-box">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                            <span style="color: var(--text-muted); font-size: 1.05rem;">Tiền cọc yêu cầu:</span>
+                            <strong id="calc-deposit" style="font-size: 1.15rem; color: var(--text-main);">1.000.000 ₫</strong>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 12px; border-top: 1px dashed var(--glass-border);">
+                            <span style="color: var(--text-main); font-weight: 600; font-size: 1.1rem;">Tổng chi phí:</span>
+                            <strong id="calc-total" style="font-size: 1.5rem; color: var(--accent-color); font-weight: 800;">150.000 ₫</strong>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
         <section id="dong-xe" class="container reveal">
             <h2 class="section-title">Các Dòng Xe Sẵn Sàng</h2>
             <p class="section-desc">Đa dạng lựa chọn, phù hợp với mọi nhu cầu và phong cách của bạn.</p>
@@ -910,7 +1044,6 @@
             </div>
         </section>
 
-        <!-- SECTION 5: Thủ Tục Cần Thiết -->
         <section id="thu-tuc" class="container reveal">
             <h2 class="section-title">Thủ Tục Đơn Giản</h2>
             <p class="section-desc">Chỉ mất 5 phút để bạn có thể nhận xe và bắt đầu hành trình.</p>
@@ -935,7 +1068,6 @@
             </div>
         </section>
 
-        <!-- SECTION 6: Khuyến Mãi -->
         <section id="khuyen-mai" class="container reveal">
             <h2 class="section-title">Khuyến Mãi Đặc Biệt</h2>
             <p class="section-desc">Nhận ưu đãi lớn khi đặt xe trước hoặc thuê dài ngày.</p>
@@ -946,7 +1078,6 @@
             </div>
         </section>
 
-        <!-- SECTION 7: Đánh Giá Khách Hàng -->
         <section id="danh-gia" class="container reveal">
             <h2 class="section-title">Khách Hàng Nói Gì</h2>
             <p class="section-desc">Hàng ngàn khách hàng đã trải nghiệm và hài lòng với dịch vụ.</p>
@@ -969,7 +1100,6 @@
             </div>
         </section>
 
-        <!-- SECTION 8: Tiện Ích Kèm Theo -->
         <section id="tien-ich" class="container reveal">
             <h2 class="section-title">Tiện Ích Miễn Phí</h2>
             <p class="section-desc">Mọi thứ bạn cần cho một chuyến đi an toàn đều được chuẩn bị sẵn.</p>
@@ -997,7 +1127,6 @@
             </div>
         </section>
 
-        <!-- SECTION 9: Câu Hỏi Thường Gặp (FAQ) -->
         <section id="hoi-dap" class="container reveal">
             <h2 class="section-title">Câu Hỏi Thường Gặp</h2>
             <p class="section-desc">Giải đáp nhanh những thắc mắc của bạn.</p>
@@ -1017,13 +1146,60 @@
             </div>
         </section>
 
-        <!-- SECTION 10: Liên Hệ & Bản Đồ -->
+        <section id="chinh-sach" class="container reveal">
+            <h2 class="section-title">Chính Sách & Quy Định</h2>
+            <p class="section-desc">Đảm bảo quyền lợi minh bạch cho cả hai bên trong suốt quá trình thuê xe.</p>
+            <div class="card grid-2">
+                <div>
+                    <h3 style="font-size: 1.3rem; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="var(--accent-color)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" x2="8" y1="13" y2="13"></line><line x1="16" x2="8" y1="17" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                        Quy định thuê xe
+                    </h3>
+                    <ul class="info-list" style="gap: 12px; color: var(--text-muted);">
+                        <li>• Khách hàng tự chịu trách nhiệm khi vi phạm luật giao thông.</li>
+                        <li>• Giao nhận xe đúng giờ, phí quá giờ được tính tự động qua App Ultra.</li>
+                        <li>• Không sử dụng xe thuê vào các mục đích phạm pháp, cầm cố.</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 style="font-size: 1.3rem; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="var(--accent-color)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" x2="12" y1="22.08" y2="12"></line></svg>
+                        Chính sách sự cố
+                    </h3>
+                    <ul class="info-list" style="gap: 12px; color: var(--text-muted);">
+                        <li>• Cửa hàng hỗ trợ đổi xe miễn phí nếu xe hỏng hóc do lỗi kỹ thuật.</li>
+                        <li>• Hư hỏng do khách hàng gây ra (thủng xăm, va quệt) khách hàng vui lòng tự chi trả.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="bao-mat" class="container reveal">
+            <h2 class="section-title">Chính Sách Bảo Mật</h2>
+            <p class="section-desc">Chúng tôi cam kết bảo vệ thông tin cá nhân và dữ liệu chuyến đi của bạn.</p>
+            <div class="card grid-2">
+                <div>
+                    <h3 style="font-size: 1.3rem; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="var(--accent-color)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                        Bảo mật giấy tờ
+                    </h3>
+                    <p style="color: var(--text-muted); line-height: 1.6;">Giấy tờ tùy thân của khách hàng (CCCD/Passport) được cất giữ an toàn tuyệt đối tại két sắt của cửa hàng và hoàn trả nguyên vẹn 100% ngay khi kết thúc hợp đồng thuê xe.</p>
+                </div>
+                <div>
+                    <h3 style="font-size: 1.3rem; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="var(--accent-color)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                        Dữ liệu App Ultra
+                    </h3>
+                    <p style="color: var(--text-muted); line-height: 1.6;">Lịch sử di chuyển và thông tin thanh toán trên App Ultra chỉ được dùng cho mục đích xuất hóa đơn minh bạch cho bạn. Cửa hàng tuyệt đối không cung cấp dữ liệu cho bên thứ ba.</p>
+                </div>
+            </div>
+        </section>
+
         <section id="lien-he" class="container reveal">
             <h2 class="section-title">Liên Hệ & Vị Trí</h2>
             <p class="section-desc">Đến ngay cửa hàng hoặc gọi cho chúng tôi để được phục vụ tốt nhất.</p>
             <div class="grid-2" style="align-items: stretch;">
                 
-                <!-- Left Column: Map -->
                 <a href="https://maps.app.goo.gl/UusWJ35x28xaAmsm7?g_st=ic" target="_blank" rel="noopener noreferrer" class="card map-card" aria-label="Mở bản đồ Google Maps">
                     <div class="map-visual"></div>
                     <div class="map-content">
@@ -1034,7 +1210,6 @@
                     </div>
                 </a>
 
-                <!-- Right Column: Info -->
                 <div class="card info-card">
                     <h3 style="font-size: 2rem; margin-bottom: 24px; letter-spacing: -0.5px;">Thông tin liên hệ</h3>
                     <address style="font-style: normal;">
@@ -1075,18 +1250,16 @@
         </section>
     </main>
 
-    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-grid">
                 
-                <!-- Footer Left: Branding, Quick Call, Map -->
                 <div class="footer-left">
                     <div class="footer-brand">
                         <img src="https://raw.githubusercontent.com/thuexemaynguyenhong/app/refs/heads/main/IMG_1620.png" alt="Logo Nguyễn Hồng" width="40" height="40" loading="lazy">
                         Nguyễn Hồng
                     </div>
-                    <p style="color: var(--text-muted); font-size: 0.95rem;">Mang đến cho bạn giải pháp di chuyển an toàn, tiết kiệm và tối ưu nhất tại trung tâm thủ đô Hà Nội.</p>
+                    <p style="color: var(--text-muted); font-size: 0.95rem;">Mang đến cho bạn giải pháp di chuyển an toàn, tiết kiệm và tối ưu nhất tại trung tâm thủ đô Hà Nội. Nhanh chóng - Tiện lợi - Minh bạch.</p>
                     
                     <div class="footer-actions">
                         <a href="tel:0388907364" class="btn btn-call" style="justify-content: flex-start; padding: 14px 24px;">
@@ -1100,43 +1273,54 @@
                     </div>
                 </div>
 
-                <!-- Footer Right: Links Menu -->
                 <div class="footer-links-wrapper">
                     <h4>Menu Nhanh</h4>
-                    <!-- Cột 1 -->
                     <div style="display: flex; flex-direction: column; gap: 12px;">
-                        <a href="#trang-chu">Trang chủ</a>
-                        <a href="#gioi-thieu">Giới thiệu</a>
-                        <a href="#bang-gia">Bảng giá</a>
-                        <a href="#dong-xe">Dòng xe</a>
-                        <a href="#thu-tuc">Thủ tục</a>
+                        <a href="#trang-chu"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg> Trang chủ</a>
+                        <a href="#gioi-thieu"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg> Giới thiệu</a>
+                        <a href="#bang-gia"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="5" rx="2"></rect><line x1="2" x2="22" y1="10" y2="10"></line></svg> Bảng giá</a>
+                        <a href="#tinh-gia"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect><line x1="8" y1="6" x2="16" y2="6"></line><line x1="8" y1="10" x2="8.01" y2="10"></line><line x1="12" y1="10" x2="12.01" y2="10"></line><line x1="16" y1="10" x2="16.01" y2="10"></line><line x1="8" y1="14" x2="8.01" y2="14"></line><line x1="12" y1="14" x2="12.01" y2="14"></line><line x1="16" y1="14" x2="16.01" y2="14"></line><line x1="8" y1="18" x2="8.01" y2="18"></line><line x1="12" y1="18" x2="12.01" y2="18"></line><line x1="16" y1="18" x2="16.01" y2="18"></line></svg> Tính giá</a>
+                        <a href="#dong-xe"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"></path></svg> Dòng xe</a>
+                        <a href="#thu-tuc"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path></svg> Thủ tục</a>
                     </div>
-                    <!-- Cột 2 -->
                     <div style="display: flex; flex-direction: column; gap: 12px;">
-                        <a href="#khuyen-mai">Khuyến mãi</a>
-                        <a href="#danh-gia">Đánh giá</a>
-                        <a href="#tien-ich">Tiện ích</a>
-                        <a href="#hoi-dap">Hỏi đáp</a>
-                        <a href="#lien-he">Liên hệ</a>
+                        <a href="#chinh-sach"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" x2="13" y1="13" y2="13"></line><line x1="16" x2="13" y1="17" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg> Chính sách</a>
+                        <a href="#khuyen-mai"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg> Khuyến mãi</a>
+                        <a href="#danh-gia"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg> Đánh giá</a>
+                        <a href="#tien-ich"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"></path></svg> Tiện ích</a>
+                        <a href="#hoi-dap"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path></svg> Hỏi đáp</a>
+                        <a href="#lien-he"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path></svg> Liên hệ</a>
                     </div>
                 </div>
 
             </div>
 
             <div class="footer-bottom">
-                <p>&copy; 2026 Thuê Xe Máy Nguyễn Hồng. Thiết kế tối ưu hóa & Chuẩn SEO.</p>
-                <div style="display: flex; justify-content: center; gap: 16px; margin-top: 16px;">
-                    <a href="https://github.com/thuexemaynguyenhong/" target="_blank" rel="noopener noreferrer" style="color: var(--text-muted);" aria-label="Github Profile">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
+                <div class="social-icons">
+                    <a href="https://thuexemaynguyenhong.github.io/app/" target="_blank" rel="noopener noreferrer" aria-label="Web App">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                    </a>
+                    <a href="https://about.me/thuexemaynguyenhong/" target="_blank" rel="noopener noreferrer" aria-label="About.me">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                    </a>
+                    <a href="https://www.instagram.com/thuexemaynguyenhong" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                    </a>
+                    <a href="https://letterboxd.com/thuexemayvn/" target="_blank" rel="noopener noreferrer" aria-label="Letterboxd">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect><line x1="7" y1="2" x2="7" y2="22"></line><line x1="17" y1="2" x2="17" y2="22"></line><line x1="2" y1="12" x2="22" y2="12"></line><line x1="2" y1="7" x2="7" y2="7"></line><line x1="2" y1="17" x2="7" y2="17"></line><line x1="17" y1="17" x2="22" y2="17"></line><line x1="17" y1="7" x2="22" y2="7"></line></svg>
+                    </a>
+                    <a href="https://github.com/thuexemaynguyenhong" target="_blank" rel="noopener noreferrer" aria-label="Github">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
+                    </a>
+                    <a href="https://www.facebook.com/thuexemaynguyenhong" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
                     </a>
                 </div>
+                <p style="margin-top: 16px;">© 2026 Thuê Xe Máy Nguyễn Hồng. Thiết kế tối ưu hóa & Chuẩn SEO.</p>
             </div>
         </div>
     </footer>
 
-    <!-- ==========================================
-         JAVASCRIPT
-         ========================================== -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             
@@ -1207,7 +1391,6 @@
             const revealOnScroll = new IntersectionObserver(function(entries, observer) {
                 entries.forEach(entry => {
                     if (!entry.isIntersecting) return;
-                    // Dùng requestAnimationFrame để tối ưu hiệu năng render khi scroll
                     window.requestAnimationFrame(() => {
                         entry.target.classList.add('active');
                     });
@@ -1219,7 +1402,6 @@
                 revealOnScroll.observe(reveal);
             });
             
-            // Initial check for elements already in viewport
             setTimeout(() => {
                 document.querySelectorAll('.reveal').forEach(el => {
                     const rect = el.getBoundingClientRect();
@@ -1228,10 +1410,84 @@
                     }
                 });
             }, 100);
+
+            // ==========================================
+            // 4. RENTAL PRICE CALCULATOR LOGIC
+            // ==========================================
+            const calcType = document.getElementById('calc-type');
+            const calcDuration = document.getElementById('calc-duration');
+            const calcPeriodLabel = document.getElementById('calc-period-label');
+            const calcDeposit = document.getElementById('calc-deposit');
+            const calcTotal = document.getElementById('calc-total');
+            const periodBtns = document.querySelectorAll('.calc-btn-period');
+
+            let currentPeriod = 'day';
+
+            // Dữ liệu giá giả định (Bạn có thể thay đổi để khớp với thực tế)
+            const pricing = {
+                xeso: {
+                    day: 150000,
+                    week: 900000,
+                    month: 3000000,
+                    deposit: 1000000
+                },
+                xega: {
+                    day: 200000,
+                    week: 1200000,
+                    month: 4000000,
+                    deposit: 1500000
+                }
+            };
+
+            const formatCurrency = (amount) => {
+                return new Intl.NumberFormat('vi-VN', { 
+                    style: 'currency', 
+                    currency: 'VND' 
+                }).format(amount).replace('₫', ' ₫'); // Format khoảng trắng cho đẹp
+            };
+
+            const calculatePrice = () => {
+                if(!calcType || !calcDuration) return;
+                
+                const type = calcType.value;
+                const duration = parseInt(calcDuration.value) || 1;
+                
+                const rate = pricing[type][currentPeriod];
+                const deposit = pricing[type].deposit;
+                
+                const total = rate * duration;
+                
+                // Hiển thị kết quả lên giao diện
+                calcDeposit.textContent = formatCurrency(deposit);
+                calcTotal.textContent = formatCurrency(total);
+            };
+
+            // Gắn event listeners
+            if(calcType && calcDuration) {
+                calcType.addEventListener('change', calculatePrice);
+                calcDuration.addEventListener('input', calculatePrice);
+                
+                periodBtns.forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        // Cập nhật UI nút được chọn
+                        periodBtns.forEach(b => b.classList.remove('active'));
+                        e.target.classList.add('active');
+                        
+                        // Cập nhật chu kỳ và text hướng dẫn
+                        currentPeriod = e.target.getAttribute('data-period');
+                        const labels = { 'day': 'ngày', 'week': 'tuần', 'month': 'tháng' };
+                        calcPeriodLabel.textContent = labels[currentPeriod];
+                        
+                        calculatePrice();
+                    });
+                });
+                
+                // Khởi tạo tính toán ban đầu
+                calculatePrice();
+            }
         });
     </script>
 
-    <!-- External Script -->
     <script src="https://thuexemayhanoi.github.io/shop/motoai_v40_bm25plus_final.js" defer></script>
 </body>
 </html>
