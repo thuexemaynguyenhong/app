@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://thuexemaynguyenhong.github.io/app/sitemap.xml
